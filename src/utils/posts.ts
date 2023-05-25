@@ -1,32 +1,37 @@
-import fs, { read } from 'fs'
+import fs from 'fs'
 
-export function getSortedPostsMetadata(): PostMetadata[] {
+export function getSortedPostsMetadata(tag: string | null = null): PostMetadata[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync("blogPosts")
   const allPostsData = fileNames.map(fileName => {
     const id = fileName.replace(/\.json$/, '')  
-    const { title, date, tags } = JSON.parse(readBlogPostFile(fileName))
+    const { title, date, tags } = getBlogPost(fileName)
 
     return {
       id,
       title,
       date,
       tags
-    } as PostMetadata
+    }
   })
 
+  let filteredPosts: PostMetadata[]
+  if (tag)
+    filteredPosts = allPostsData.filter(post => post.tags.includes(tag))
+  else
+    filteredPosts = allPostsData
+
   // Sort posts by date
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
+  return filteredPosts.sort((a, b) => {
+    if (a.date < b.date)
       return 1
-    } else {
+    else
       return -1
-    }
   })
 }
 
 export function getPost(id: string): Post {
-  const { title, date, content, tags } = JSON.parse(readBlogPostFile(`${id}.json`))
+  const { title, date, tags, content } = getBlogPost(`${id}.json`)
 
   return {
     id,
@@ -37,10 +42,10 @@ export function getPost(id: string): Post {
   }
 }
 
-function readBlogPostFile(name: string): string {
+function getBlogPost(name: string): Post {
   const fullPath = "blogPosts" + "/" + name
   const fileContents = fs.readFileSync(fullPath, 'utf8')
-  return fileContents
+  return JSON.parse(fileContents)
 }
 
 export interface PostMetadata {
