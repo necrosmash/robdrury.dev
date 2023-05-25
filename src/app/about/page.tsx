@@ -3,6 +3,6 @@ import Link from 'next/link'
 
 export default function About() {
   return (
-    <Link href="/">Home</Link>
+    <div>This is the about page.</div>
   )
 }
