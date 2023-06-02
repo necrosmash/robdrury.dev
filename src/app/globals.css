@@ -16,6 +16,11 @@
   }
 }
 
+@font-face {
+  font-family: "emotionengine";
+  src: url("/fonts/EmotionEngine.otf")
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
