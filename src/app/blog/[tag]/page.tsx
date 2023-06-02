@@ -12,5 +12,5 @@ export default function Page({ params }: { params: { tag: string }}) {
 }
 
 export const generateStaticParams = () => (
-  tags.map((tag) => ({ slug: tag }))
+  tags.map((tag) => tag)
 )
