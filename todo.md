@@ -19,4 +19,4 @@ spacing in blog posts
 
 blog list page (tag or no tag)
 
-clickable tab links in blog entries and elsewhere
+clickable tag links in blog entries and elsewhere

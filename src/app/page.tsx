@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Home() {
   return (
     <main>
-      <h1 className='mb-3 mt-3 text-7xl font-emotionengine'>robdrury.dev</h1>
+      <h1 className='mb-3 mt-3 md:text-7xl text-5xl font-emotionengine'>robdrury.dev</h1>
       This is the home page.
     </main>
     /*<main className="flex min-h-screen flex-col items-center justify-between p-24">
