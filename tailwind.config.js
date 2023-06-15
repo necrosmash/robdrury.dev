@@ -25,25 +25,13 @@ module.exports = {
                 color: '#2c5282',
               },
             },
-            h1: {
-              color: '#fff'
-            },
-            h2: {
-              color: '#fff'
-            },
-            h3: {
-              color: '#fff'
-            },
-            code: {
-              color: '#fff'
-            },
             'code::before': {
               content: '""'
             },
             'code::after': {
               content: '""'
-            }
-          },
+            },
+          }
         },
       },
     },

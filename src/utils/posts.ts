@@ -8,7 +8,7 @@ export function getSortedPostsMetadata(tag: string | null = null): PostMetadata[
 
   if (tag) {
     postsFrontmatter = postsFrontmatter.filter(post => (
-      post.tags.split(", ")).includes(tag)
+      post.tags.split(",")).includes(tag)
     )
   }
 

@@ -1,1 +1,1 @@
-export const tags = ["test", "markdown", "markdown2"]
+export const tags = ["chatgpt", "thesis", "game", "unity", "test", "markdown"]

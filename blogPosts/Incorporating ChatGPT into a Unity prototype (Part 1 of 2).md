@@ -2,7 +2,7 @@
 "id": 1
 "title": "Incorporating ChatGPT into a Unity prototype (Part 1 of 2)"
 "date": "2023-05-28"
-"tags": "chatgpt, thesis, game, unity"
+"tags": "chatgpt,thesis,game,unity"
 ---
 
 Is it a good idea to add ChatGPT to a Unity game? You may have your own thoughts already, but this was the question that my thesis partner and I sought to answer for our Master's thesis.
@@ -169,7 +169,7 @@ string prompt = Regex.Replace("I want you to return me a JSON object. All" +
 "\"", "\\\"");
 ```
 
-This prompt grew over time. The sentence _All of your output should be a part of the JSON object_ came about from ChatGPT's tendency to say _Sure! Here's your JSON object:_, followed by the JSON object, thereby breaking everything. Additionally, towards the end, there is _It is the beginning of the story only_; We sometimes had issues with ChatGPT writing a completely self-contained (albeit small), including an ending. We needed to remind it that it is writing the setup only.
+This prompt grew over time. The sentence _All of your output should be a part of the JSON object_ came about from ChatGPT's tendency to say _Sure! Here's your JSON object:_, followed by the JSON object, thereby breaking everything. Additionally, towards the end, there is _It is the beginning of the story only_; we sometimes had issues with ChatGPT writing a completely self-contained (albeit small), including an ending. We needed to remind it that it is writing the setup only.
 
 We're also asking for particular sizes and weapon. The actual deserializing is done in `ChatGPTResponse` via Unity's own `JsonUtility.FromJson` method, as shown above.
 

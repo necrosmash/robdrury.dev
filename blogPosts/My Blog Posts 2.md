@@ -2,7 +2,7 @@
 "id": 2
 "title": "My Blog Posts 2"
 "date": "2023-05-23"
-"tags": "test, markdown2"
+"tags": "test,markdown"
 ---
 
 # this is bp2
