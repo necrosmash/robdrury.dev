@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div className="flex justify-center">
       <div>
-        <div className='text-xl mb-4'>
+        <div className="text-xl mb-4">
       I&apos;m planning on writing this more fully in the future.
           <br />
       For now, here are some bullet points:
