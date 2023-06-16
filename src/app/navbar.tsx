@@ -22,12 +22,15 @@ export default function Navbar() {
           );
           return (
             <Link
-              className={isActive ? 'text-pink-500' : 'text-blue-500'}
+              className={`
+                ${navLinks.length - 1 !== index && `mr-4`}
+                ${isActive && 'bg-pink-600 rounded-full'}
+                text-lg font-semibold px-3 py-1.5
+              `}
               href={link.href}
               key={link.name}
             >
               {link.name}
-              {navLinks.length - 1 !== index && <span className={'text-white'}>&nbsp;|&nbsp;</span>}
             </Link>
           );
         })}
