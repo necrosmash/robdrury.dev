@@ -9,7 +9,7 @@ export default function Page({ params }: { params: { tag: string }}) {
   const { tag } = params
 
   return (
-    <div className="grid grid-rows-1 grid-cols-[1fr,auto,1fr] w-fit mx-auto">
+    <div className="max-w-4xl grid grid-rows-1 grid-cols-[1fr,auto,1fr] w-fit mx-auto">
       <Link href="/blog">
         <HiArrowLeft className="mr-2" size={32}/>
       </Link>
