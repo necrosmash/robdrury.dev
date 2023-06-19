@@ -3,11 +3,11 @@ import BlogEntryList from '@/components/BlogEntryList'
 
 export default function BlogList() {
   return (
-    <>
-      <div className="text-4xl font-semibold">
+    <div className="w-fit mx-auto">
+      <div className="text-2xl font-semibold text-center">
         All posts
       </div>
       <BlogEntryList blogEntries={getSortedPostsMetadata()} />
-    </>
+    </div>
   )
 }

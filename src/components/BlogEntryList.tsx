@@ -3,19 +3,18 @@ import Link from "next/link";
 
 export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[]}) {
   return (
-    <ul className="w-fit">
+    <ul className="xsm:min-w-[500px]">
       {blogEntries.map(({ id, date, title, tags }, index) => {
         const tagsArray = tags.split(',')
         return (
           <li key={id} className={`
-            ${index == 0 ? `mt-6` : `mt-3`}
+            ${index == 0 ? `mt-9` : `mt-7`}
           `}>
             <Link className="text-xl" href={`/blog/post/${title}`}>
               {title}
             </Link>
             <div className="flex justify-between">
-              <div>
-                tags:&nbsp;
+              <div className="text-lg mt-1">
                 {tagsArray.map((tag, index) => (
                   <>
                     <Link key={tag} className="text-[#3182ce]" href={`/blog/${tag}`}>{tag}</Link>
@@ -23,10 +22,11 @@ export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[
                   </>
                 ))}
               </div>
-              <div>{date}</div>
+              <div className="self-center whitespace-nowrap ml-5 mt-1">{date}</div>
             </div>
           </li>
-        )})}
+        )
+      })}
     </ul>
   )
 }
