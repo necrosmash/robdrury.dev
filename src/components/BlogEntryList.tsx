@@ -17,7 +17,7 @@ export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[
               <div className="text-lg mt-1">
                 {tagsArray.map((tag, index) => (
                   <>
-                    <Link key={tag} className="text-[#3182ce]" href={`/blog/${tag}`}>{tag}</Link>
+                    <Link key={tag} className="text-blue-500 hover:text-blue-700" href={`/blog/${tag}`}>{tag}</Link>
                     {`${tagsArray.length - 1 !== index ? `, ` : ``}`}
                   </>
                 ))}

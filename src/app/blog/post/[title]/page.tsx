@@ -14,11 +14,11 @@ export default function Page({ params }: { params: { title: string }}) {
   return (
     <div className="flex justify-center">
       <div className="w-full prose prose-invert">
-        <div className={`mb-3 text-3xl font-semibold`}>{post.data.title}</div>
-        <h2 className={`mb-3 text-2xl font-semibold`}>
+        <div className="mb-3 text-3xl font-semibold">{post.data.title}</div>
+        <h2 className="mb-3 text-2xl font-semibold">
           {getDate(post.data.date)}
         </h2>
-        <h3 className={`mb-3 text-lg font-semibold`}>
+        <h3 className="mb-3 text-lg font-semibold">
           {tags.map((tag: string) => (
             <span key={tag}>
               <Link className="text-[#3182ce]" href={`/blog/${tag}`}>{tag}</Link>
@@ -45,7 +45,6 @@ export default function Page({ params }: { params: { title: string }}) {
                       lang={identifierString[0]?.replace("language-", "")}
                       extensions={[titleBar]}
                       theme={"dark-plus"}
-                      style={{overflow: "auto"}}
                     >
                       {children[0] && (children[0] as string).replace("\n", "")}
                     </Code>
@@ -59,6 +58,7 @@ export default function Page({ params }: { params: { title: string }}) {
                 <a target="_blank" href={src}><Image alt={alt || ""} src={src || ""} title={title} width={900} height={900} className="w-full h-auto"></Image></a>
               </>
             ),
+            h2: ({node, ...props}) => (<h2 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h2>),
             pre: ({node, ...props}) => (<>{props.children}</>)
           }}>{post.content}</ReactMarkdown>
       </div>

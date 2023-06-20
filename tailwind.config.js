@@ -18,14 +18,22 @@ module.exports = {
       fontFamily: {
         emotionengine: ["emotionengine", "sans-serif"],
       },
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             color: '#fff',
             a: {
-              color: '#3182ce',
+              color: theme('colors.blue.500'),
               '&:hover': {
-                color: '#2c5282',
+                color: theme('colors.blue.700'),
+              },
+            },
+            h2: {
+              a: {
+                color: '#fff',
+                '&:hover': {
+                  color: '#fff',
+                },
               },
             },
             'code::before': {
@@ -36,7 +44,7 @@ module.exports = {
             },
           }
         },
-      },
+      }),
     },
   },
   plugins: [

@@ -15,7 +15,7 @@ export default function Home() {
         <br />
         I&apos;m a software developer and amateur game developer living in Gothenburg, Sweden.
         <br /><br />
-        Read more about me <Link className="text-blue-500" href="/about">here</Link>.
+        Read more about me <Link className="text-blue-500 hover:text-blue-700" href="/about">here</Link>.
         <div className="flex mt-9">
           <a href="mailto:robjdrewry@gmail.com" target="_blank" className="flex flex-col items-center mr-8">
             <SiGmail size={"2em"} className="mb-1" />
