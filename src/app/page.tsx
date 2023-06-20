@@ -6,7 +6,7 @@ import { HiDocument } from "react-icons/hi";
 export default function Home() {
   return (
     <main className="flex justify-around items-center">
-      <div className="pr-4">
+      <div className="mr-4">
         <div className="md:text-5xl text-3xl">
           Hi 👋
           <br />
