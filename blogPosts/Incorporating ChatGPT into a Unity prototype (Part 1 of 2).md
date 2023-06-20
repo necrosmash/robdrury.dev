@@ -44,7 +44,8 @@ public void Post(string prompt)
     case Model.chatgpt:
       ChatGPTPost chatGPTPost = new ChatGPTPost();
       chatGPTPost.model = "gpt-3.5-turbo";
-      chatGPTPost.messages = new Message[previousMessages.Count + 1];
+      chatGPTPost.messages = 
+        new Message[previousMessages.Count + 1];
 
       for (int i = 0; i < previousMessages.Count; i++)
       {
@@ -54,11 +55,14 @@ public void Post(string prompt)
         );
       }
       Message nextMessage = new Message("user", prompt);
-      chatGPTPost.messages[chatGPTPost.messages.Length - 1] = nextMessage;
+      chatGPTPost.messages
+        [chatGPTPost.messages.Length - 1] = nextMessage;
       previousMessages.Add(nextMessage);
 
       string newChatGPTPostData = JsonUtility.ToJson(chatGPTPost);
-      StartCoroutine(Post(GenerateRequest(chatGptUrl, newChatGPTPostData)));
+      StartCoroutine(Post(GenerateRequest(
+        chatGptUrl, newChatGPTPostData
+      )));
             
       break;
     default:
@@ -88,10 +92,16 @@ private IEnumerator Post(UnityWebRequest request)
   }
   else
   {
-    response = JsonUtility.FromJson<ChatGPTResponse>(request.downloadHandler.text);
-    foreach (ChatGPTResponse.Choice choice in ((ChatGPTResponse) response).choices)
+    response = JsonUtility.FromJson<ChatGPTResponse>
+      (request.downloadHandler.text);
+
+    foreach (ChatGPTResponse.Choice choice in
+      ((ChatGPTResponse) response).choices
+    )
     {
-      previousMessages.Add(new Message(choice.message.role, choice.message.content));
+      previousMessages.Add(new Message(
+        choice.message.role, choice.message.content
+      ));
     }
       
     if (isFirstPost)
@@ -108,7 +118,7 @@ private IEnumerator Post(UnityWebRequest request)
 }
 ```
 
-`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](https://www.google.com).
+`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in Part 2.
 
 ## Instantiating assets
 As you saw earlier, JSON deserialisation is at the heart of this. Upon launching the game, we make a request to ChatGPT's backend to get the beginning of our narrative, as well as some property values for instantiating our enemies.
@@ -130,7 +140,9 @@ public class ChatGPTResponse : APIResponse
             throw new BattleInfoNotFoundException();
         }
 
-        battleInfo = JsonUtility.FromJson<BattleInfo>(choices[0].message.content);
+        battleInfo = JsonUtility.FromJson<BattleInfo>(
+          choices[0].message.content
+        );
         logString = battleInfo.openingScene;
     }
 
@@ -233,4 +245,4 @@ We similarly display the result of the `logString` property of our `ChatGPTRepso
 
 And that's it! Remember that if this seems light on details you can always check out the [repo](https://github.com/necrosmash/thesis_prototype).
 
-In [Part 2](https://www.google.com) I'll go over `response.ParseLogString()`, which is how we handle narrative subsequent to the opening scene. This is also where we attempt to merge enemy characteristics with generated narrative to create a story influenced by the properties of in-game enemies.
+In Part 2 I'll go over `response.ParseLogString()`, which is how we handle narrative subsequent to the opening scene. This is also where we attempt to merge enemy characteristics with generated narrative to create a story influenced by the properties of in-game enemies.
