@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { SiGmail, SiLinkedin } from "react-icons/si";
-import { HiArrowRight } from "react-icons/hi";
-import { HiDocument } from "react-icons/hi";
+import { HiArrowRight, HiDocument } from "react-icons/hi";
 import BlogEntryList from '@/components/BlogEntryList';
 import { getSortedPostsMetadata } from '@/utils/posts';
 
@@ -41,16 +40,16 @@ export default function Home() {
       </main>
       <hr className="my-8 md:my-16" />
       <div className="md:flex md:divide-x">
-        <div className="md:w-1/2 md:pr-4 mx-auto pb-20 md:pb-0">
+        <div className="md:w-1/2 md:pr-8 mx-auto md:pb-0 pb-20 md:pb-0">
           <div className="mb-7 pb-5 md:mt-0 b-6 text-2xl md:text-3xl font-semibold text-center">
             Featured projects
           </div>
           <div className="flex items-center">
             <Image className="border-2 border-white-700 rounded-lg border-2 border-gray-700" src="/mote banner.png" width={120} height={120} alt="Mote banner" />
             <div className="ml-4">
-              <div className="text-2xl">
+              <a className="text-xl" href="https://necrosmash.itch.io/mote" target="_blank">
                 Mote
-              </div>
+              </a>
               <div className="mt-1">
                 March Game Jam 2023 entry
               </div>
@@ -61,8 +60,8 @@ export default function Home() {
             <HiArrowRight className="ml-2 inline" size={16}/>
           </Link>
         </div>
-        <hr className="md:hide dividy-y my-8 md:my-12" />
-        <div className="md:w-1/2 md:pl-4 mx-auto">
+        <hr className="my-8 md:hide" />
+        <div className="md:w-1/2 pb-20 md:pb-0 md:pl-8 mx-auto">
           <div className="pb-5 text-2xl md:text-3xl font-semibold text-center">
             Most recent posts
           </div>

@@ -13,19 +13,19 @@ export default function Page({ params }: { params: { title: string }}) {
 
   return (
     <div className="flex justify-center">
-      <div className="w-full prose prose-invert">
-        <div className="mb-3 text-3xl font-semibold">{post.data.title}</div>
-        <h2 className="mb-3 text-2xl font-semibold">
+      <article className="w-full prose md:prose-lg prose-invert">
+        <h2 className="mb-3 font-semibold">{post.data.title}</h2>
+        <h3 className="mb-3 font-semibold">
           {getDate(post.data.date)}
-        </h2>
-        <h3 className="mb-3 text-lg font-semibold">
+        </h3>
+        <h4 className="mb-3 font-semibold">
           {tags.map((tag: string) => (
             <span key={tag}>
               <Link className="text-[#3182ce]" href={`/blog/${tag}`}>{tag}</Link>
               {tags.indexOf(tag) !== tags.length - 1 ? ", " : ""}
             </span>
           ))}
-        </h3>
+        </h4>
         <ReactMarkdown 
           components={{
             code: function({className, inline, children, ...props}) {
@@ -61,7 +61,7 @@ export default function Page({ params }: { params: { title: string }}) {
             h2: ({node, ...props}) => (<h2 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h2>),
             pre: ({node, ...props}) => (<>{props.children}</>)
           }}>{post.content}</ReactMarkdown>
-      </div>
+      </article>
     </div>
   )
 }
