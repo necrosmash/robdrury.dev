@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 
-export function getSortedPostsMetadata(tag: string | null = null): PostMetadata[] {
+export function getSortedPostsMetadata(tag?: string, numOfEntries?: number): PostMetadata[] {
   let postsFrontmatter = fs.readdirSync('blogPosts').map((fileName) => (
     matter.read(`blogPosts/${fileName}`).data as PostMetadata
   ))
@@ -12,7 +12,12 @@ export function getSortedPostsMetadata(tag: string | null = null): PostMetadata[
     )
   }
 
-  return postsFrontmatter.sort((a, b) => (
+  postsFrontmatter.sort((a, b) => (
     new Date(b.date).getTime() - new Date(a.date).getTime()
   ))
+
+  if (numOfEntries)
+    return postsFrontmatter.slice(0, numOfEntries)
+  else
+    return postsFrontmatter
 }

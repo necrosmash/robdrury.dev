@@ -13,9 +13,11 @@ export default function Page({ params }: { params: { tag: string }}) {
       <Link href="/blog">
         <HiArrowLeft className="mr-2" size={32}/>
       </Link>
-      <div className="text-2xl font-semibold">Posts tagged <em>{tag}</em></div>
+      <div className="text-2xl md:text-3xl font-semibold">Posts tagged <em>{tag}</em></div>
       <div className="row-start-2 col-span-3 justify-self-center">
-        <BlogEntryList blogEntries={getSortedPostsMetadata(tag)} />
+        <div className="xsm:min-w-[500px]">
+          <BlogEntryList blogEntries={getSortedPostsMetadata(tag)} />
+        </div>
       </div>
     </div>
   )

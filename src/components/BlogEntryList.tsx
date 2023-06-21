@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[]}) {
   return (
-    <ul className="xsm:min-w-[500px]">
+    <ul className="mt-7">
       {blogEntries.map(({ id, date, title, tags }, index) => {
         const tagsArray = tags.split(',')
         return (
           <li key={id} className={`
-            ${index == 0 ? `mt-9` : `mt-7`}
+            ${index != 0 && `mt-7`}
           `}>
             <Link className="text-xl" href={`/blog/post/${title}`}>
               {title}
