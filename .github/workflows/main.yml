@@ -40,4 +40,4 @@ jobs:
             $GITHUB_WORKSPACE/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }}
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "cd /home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }} && yarn install --production && pm2 restart yarn"
+            "cd /home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }} && yarn install --production && pm2 restart \"yarn start\""
