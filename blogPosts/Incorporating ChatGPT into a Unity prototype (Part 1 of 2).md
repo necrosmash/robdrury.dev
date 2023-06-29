@@ -1,7 +1,7 @@
 ---
 "id": 1
 "title": "Incorporating ChatGPT into a Unity prototype (Part 1 of 2)"
-"date": "2023-05-28"
+"date": "2023-06-29"
 "tags": "chatgpt,thesis,game,unity"
 ---
 
