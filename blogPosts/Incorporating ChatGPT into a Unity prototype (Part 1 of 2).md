@@ -1,7 +1,8 @@
 ---
 "id": 1
 "title": "Incorporating ChatGPT into a Unity prototype (Part 1 of 2)"
-"date": "2023-06-29"
+"uploaded": "2023-06-29"
+"updated": "2023-07-31"
 "tags": "chatgpt,thesis,game,unity"
 ---
 
@@ -13,7 +14,7 @@ In our prototype, we have two main ways of making use of ChatGPT:
 * setting property values for instantiated assets
 * generating narrative
 
-(If you wish to read the thesis in its entirety, you can get it [here](https://www.google.com))
+(If you wish to read the thesis in its entirety, you can get it [here](https://drive.google.com/file/d/1q2msreCh4MQC_ZlNceXdsYCNj28wwmyD/view?usp=sharing))
 
 ## REST client
 Let's first talk about how one can even communicate with the ChatGPT backend in the first place.
@@ -118,7 +119,7 @@ private IEnumerator Post(UnityWebRequest request)
 }
 ```
 
-`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in Part 2.
+`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)).
 
 ## Instantiating assets
 As you saw earlier, JSON deserialisation is at the heart of this. Upon launching the game, we make a request to ChatGPT's backend to get the beginning of our narrative, as well as some property values for instantiating our enemies.
@@ -181,9 +182,9 @@ string prompt = Regex.Replace("I want you to return me a JSON object. All" +
 "\"", "\\\"");
 ```
 
-This prompt grew over time. The sentence _All of your output should be a part of the JSON object_ came about from ChatGPT's tendency to say _Sure! Here's your JSON object:_, followed by the JSON object, thereby breaking everything. Additionally, towards the end, there is _It is the beginning of the story only_; we sometimes had issues with ChatGPT writing a completely self-contained (albeit small), including an ending. We needed to remind it that it is writing the setup only.
+This prompt grew over time. The sentence _All of your output should be a part of the JSON object_ came about from ChatGPT's tendency to say _Sure! Here's your JSON object:_, followed by the JSON object, thereby breaking everything. Additionally, towards the end, there is _It is the beginning of the story only_; we sometimes had issues with ChatGPT writing a completely self-contained (albeit small) story, including an ending. We needed to remind it that it is writing the setup only.
 
-We're also asking for particular sizes and weapon. The actual deserializing is done in `ChatGPTResponse` via Unity's own `JsonUtility.FromJson` method, as shown above.
+We're also asking for particular sizes and weapons. The actual deserializing is done in `ChatGPTResponse` via Unity's own `JsonUtility.FromJson` method, as shown above.
 
 We're using our `BattleInfo` class to both describe the structure of the object we want from ChatGPT (in the prompt) and deserialize the result of our call:
 ```csharp,BattleInfo.cs
@@ -245,4 +246,4 @@ We similarly display the result of the `logString` property of our `ChatGPTRepso
 
 And that's it! Remember that if this seems light on details you can always check out the [repo](https://github.com/necrosmash/thesis_prototype).
 
-In Part 2 I'll go over `response.ParseLogString()`, which is how we handle narrative subsequent to the opening scene. This is also where we attempt to merge enemy characteristics with generated narrative to create a story influenced by the properties of in-game enemies.
+In [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)) I'll go over `response.ParseLogString()`, which is how we handle narrative subsequent to the opening scene. This is also where we attempt to merge enemy characteristics with generated narrative to create a story influenced by the properties of in-game enemies.

@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[]}) {
   return (
     <ul className="mt-7">
-      {blogEntries.map(({ id, date, title, tags }, index) => {
+      {blogEntries.map(({ id, uploaded, title, tags }, index) => {
         const tagsArray = tags.split(',')
         return (
           <li key={id} className={`
@@ -22,7 +22,7 @@ export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[
                   </>
                 ))}
               </div>
-              <div className="self-center whitespace-nowrap ml-5 mt-1">{date}</div>
+              <div className="self-center whitespace-nowrap ml-5 mt-1">{uploaded}</div>
             </div>
           </li>
         )

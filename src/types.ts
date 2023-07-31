@@ -1,6 +1,7 @@
 type PostMetadata = {
   id: string,
-  date: string,
+  uploaded: string,
+  updated?: string,
   title: string,
   tags: string
 }

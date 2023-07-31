@@ -14,10 +14,10 @@ export default function SocialLinks() {
         <SiLinkedin size={"2em"} className="mb-1" />
         <div>LinkedIn</div>
       </Link>
-      <Link href="/Rob_Drury_VisualCV_Resume.pdf" target="_blank" className="w-20 flex flex-col items-center">
+      <a href="https://drive.google.com/file/d/17gG3UwOcYJOfDavASB_d19o4SbpuG62m/view?usp=sharing" target="_blank" className="w-20 flex flex-col items-center">
         <HiDocument size={"2em"} className="mb-1" />
         <div>CV</div>
-      </Link>
+      </a>
     </div>
   )
 }

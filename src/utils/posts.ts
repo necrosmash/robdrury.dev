@@ -13,7 +13,7 @@ export function getSortedPostsMetadata(tag?: string, numOfEntries?: number): Pos
   }
 
   postsFrontmatter.sort((a, b) => (
-    new Date(b.date).getTime() - new Date(a.date).getTime()
+    new Date(b.uploaded).getTime() - new Date(a.uploaded).getTime()
   ))
 
   if (numOfEntries)
