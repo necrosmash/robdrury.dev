@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { title: string } }) {
   return (
     <div className="flex justify-center">
       <article className="w-full prose md:prose-lg prose-invert">
-        <h2 className="font-semibold">{post.data.title}</h2>
+        <h2>{post.data.title}</h2>
         <div className="text-2xl mb-4">
           <div>
             {getDate(post.data.uploaded)}
@@ -70,6 +70,7 @@ export default function Page({ params }: { params: { title: string } }) {
               </>
             ),
             h2: ({ node, ...props }) => (<h2 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h2>),
+            h3: ({ node, ...props }) => (<h3 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h3>),
             pre: ({ node, ...props }) => (<>{props.children}</>),
             a: ({ node, ...props }) => (
               props.href?.startsWith('/') ?

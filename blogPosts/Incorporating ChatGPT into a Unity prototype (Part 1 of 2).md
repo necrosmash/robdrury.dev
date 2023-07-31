@@ -246,4 +246,4 @@ We similarly display the result of the `logString` property of our `ChatGPTRepso
 
 And that's it! Remember that if this seems light on details you can always check out the [repo](https://github.com/necrosmash/thesis_prototype).
 
-In [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)) I'll go over `response.ParseLogString()`, which is how we handle narrative subsequent to the opening scene. This is also where we attempt to merge enemy characteristics with generated narrative to create a story influenced by the properties of in-game enemies.
+In [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)) I'll go over how we handle narrative subsequent to the opening scene. We do this by merging enemy characteristics with generated narrative to create a story influenced by those characteristics.
