@@ -31,10 +31,10 @@ export default function Home() {
       <hr className="my-8 md:my-16 border-gray-700 border-2"/>
       <div className="md:flex md:divide-x-4 md:divide-gray-700">
         <div className="md:w-1/2 md:pr-8 mx-auto md:pb-0 pb-20 md:pb-0">
-          <div className="mb-7 pb-5 md:mt-0 b-6 text-2xl md:text-3xl font-semibold text-center">
+          <div className="pb-5 md:mt-0 b-6 text-2xl md:text-3xl font-semibold text-center">
             Featured projects
           </div>
-          <div className="flex items-center">
+          <div className="mt-7 flex items-center">
             <Image className="rounded-lg border-2 border-gray-700" src="/mote banner.png" width={120} height={120} alt="Mote banner" />
             <div className="ml-4">
               <a className="text-xl" href="https://necrosmash.itch.io/mote" target="_blank">
@@ -42,6 +42,17 @@ export default function Home() {
               </a>
               <div className="mt-1">
                 March Game Jam 2023 entry
+              </div>
+            </div>
+          </div>
+          <div className="mt-7 flex items-center">
+            <Image className="rounded-lg border-2 border-gray-700" src="/thesis prototype banner.png" width={120} height={120} alt="Thesis prototyping banner" />
+            <div className="ml-4">
+              <a className="text-xl" href="https://github.com/necrosmash/thesis_prototype" target="_blank">
+                Thesis prototype
+              </a>
+              <div className="mt-1">
+                Generating story with ChatGPT via player input and enemy traits
               </div>
             </div>
           </div>
