@@ -27,7 +27,7 @@ Traits are essentially status effects. They have a variety of effects:
 - `Short-sighted` - shorter range for spotting the player
 - `One-armed` - chance attack will miss if using a melee weapon
 
-Most of these are assigned to enemies at the start of the game and remain for its entirety; `Burning` and `Knockdown` are exceptions to this, as `Knockdown` has a chance of occuring when the player attacks an enemy and `Burning` is triggered by being close to a barrel when it explodes.
+Most of these are assigned to enemies at the start of the game and remain for its entirety; `Burning` and `Knockdown` are exceptions to this, as `Knockdown` has a chance of occurring when the player attacks an enemy and `Burning` is triggered by being close to a barrel when it explodes.
 
 ![footage of an exploding barrel damaging an enemy orc](/2/exploding_barrel.gif)
 
