@@ -4,7 +4,7 @@ import { HiTag } from "react-icons/hi";
 
 export default function TagsList({ tags }: { tags: string[] }) {
   return (
-    <div className="text-base flex space-x-2 pb-2">
+    <div className="text-base flex space-x-2 pb-2 mt-1">
       <HiTag size="1.2em" title="tags" className="mt-[5px]" />
       <div>
         {tags.map((tag: string) => (

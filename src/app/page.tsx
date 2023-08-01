@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { HiArrowRight } from "react-icons/hi";
 import BlogEntryList from '@/components/BlogEntryList';
 import SocialLinks from '@/components/SocialLinks';
-import TagsList from '@/components/TagsList';
+import FeaturedProjectEntry from '@/components/FeaturedProjectEntry';
 import { getSortedPostsMetadata } from '@/utils/posts';
 
 export default function Home() {
@@ -35,29 +35,8 @@ export default function Home() {
           <div className="pb-5 md:mt-0 b-6 text-2xl md:text-3xl font-semibold text-center">
             Featured projects
           </div>
-          <div className="mt-7 flex items-center">
-            <Image className="rounded-lg border-2 border-gray-700" src="/mote banner.png" width={120} height={120} alt="Mote banner" />
-            <div className="ml-4">
-              <a className="text-xl" href="https://necrosmash.itch.io/mote" target="_blank">
-                Mote
-              </a>
-              <div className="mt-1">
-                March Game Jam 2023 entry
-              </div>
-            </div>
-          </div>
-          <div className="mt-7 flex items-center">
-            <Image className="rounded-lg border-2 border-gray-700" src="/thesis prototype banner.png" width={120} height={120} alt="Thesis prototyping banner" />
-            <div className="ml-4">
-              <a className="text-xl" href="https://github.com/necrosmash/thesis_prototype" target="_blank">
-                Thesis prototype
-              </a>
-              <div className="mt-1">
-                Generating story with ChatGPT via player input and enemy traits
-              </div>
-              <TagsList tags={['thesis']} />
-            </div>
-          </div>
+          <FeaturedProjectEntry title="Mote" blurb="March Game Jam 2023 entry" imagePath="/mote banner.png" imageAlt="Mote banner" hrefPath="https://necrosmash.itch.io/mote" />
+          <FeaturedProjectEntry title="Thesis prototype" blurb="Generating story with ChatGPT via player input and enemy traits" imagePath="/thesis prototype banner.png" imageAlt="Thesis prototype banner" hrefPath="https://github.com/necrosmash/thesis_prototype" tags={['thesis']}/>
           <Link className="pt-14 text-xl float-right" href="/projects">
             All projects
             <HiArrowRight className="ml-2 inline" size={16}/>

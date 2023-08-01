@@ -15,9 +15,7 @@ export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[
               {title}
             </Link>
             <div className="flex justify-between mt-1">
-              <div className="mt-1">
-                <TagsList tags={tagsArray} />
-              </div>
+              <TagsList tags={tagsArray} />
               <div className="self-center whitespace-nowrap ml-5">{uploaded}</div>
             </div>
           </li>

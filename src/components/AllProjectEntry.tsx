@@ -1,7 +1,7 @@
 import Image from "next/image"
 import TagsList from "@/components/TagsList"
 
-export default function ProjectEntry({imagePath, imageAlt, hrefPath, title, blurb, tags, width = 630, height = 500}: ProjectEntry) {
+export default function AllProjectsEntry({imagePath, imageAlt, hrefPath, title, blurb, tags, width = 630, height = 500}: ProjectEntry) {
   return (
     <div className="w-72">
       <a href={hrefPath} target="_blank">
@@ -18,9 +18,7 @@ export default function ProjectEntry({imagePath, imageAlt, hrefPath, title, blur
         )}
       </div>
       {tags && (
-        <div className="mt-1">
-          <TagsList tags={tags} />
-        </div>
+        <TagsList tags={tags} />
       )}
     </div>
   )
