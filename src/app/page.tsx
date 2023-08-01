@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { HiArrowRight } from "react-icons/hi";
 import BlogEntryList from '@/components/BlogEntryList';
 import SocialLinks from '@/components/SocialLinks';
+import TagsList from '@/components/TagsList';
 import { getSortedPostsMetadata } from '@/utils/posts';
 
 export default function Home() {
@@ -54,6 +55,7 @@ export default function Home() {
               <div className="mt-1">
                 Generating story with ChatGPT via player input and enemy traits
               </div>
+              <TagsList tags={['thesis']} />
             </div>
           </div>
           <Link className="pt-14 text-xl float-right" href="/projects">

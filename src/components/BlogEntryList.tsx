@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import TagsList from "@/components/TagsList";
 
 export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[]}) {
   return (
@@ -13,16 +14,11 @@ export default function BlogEntryList({blogEntries}: {blogEntries: PostMetadata[
             <Link className="text-xl" href={`/blog/post/${title}`}>
               {title}
             </Link>
-            <div className="flex justify-between">
-              <div className="text-lg mt-1">
-                {tagsArray.map((tag, index) => (
-                  <>
-                    <Link key={tag} className="text-blue-500 hover:text-blue-700" href={`/blog/${tag}`}>{tag}</Link>
-                    {`${tagsArray.length - 1 !== index ? `, ` : ``}`}
-                  </>
-                ))}
+            <div className="flex justify-between mt-1">
+              <div className="mt-1">
+                <TagsList tags={tagsArray} />
               </div>
-              <div className="self-center whitespace-nowrap ml-5 mt-1">{uploaded}</div>
+              <div className="self-center whitespace-nowrap ml-5">{uploaded}</div>
             </div>
           </li>
         )
