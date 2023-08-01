@@ -14,4 +14,5 @@ type ProjectEntry = {
   blurb?: string,
   width?: number,
   height?: number,
+  tags?: string[],
 }

@@ -1,11 +1,11 @@
 import ReactMarkdown from 'react-markdown'
 import matter from "gray-matter"
 import { Code } from "bright"
-import { HiTag } from "react-icons/hi";
 import Image from 'next/image'
 import Link from "next/link"
 import { titleBar } from "@/utils/extension"
 import { getSortedPostsMetadata } from "@/utils/posts"
+import TagsList from '@/components/TagsList'
 
 export default function Page({ params }: { params: { title: string } }) {
   const { title } = params
@@ -26,17 +26,7 @@ export default function Page({ params }: { params: { title: string } }) {
             </div>
           )}
         </div>
-        <div className="text-base flex space-x-2 pb-2">
-          <HiTag size="1.2em" title="tags" className="mt-[5px]" />
-          <div>
-            {tags.map((tag: string) => (
-              <span key={tag}>
-                <Link /*className="text-[#3182ce]"*/ href={`/blog/${tag}`}>{tag}</Link>
-                {tags.indexOf(tag) !== tags.length - 1 ? ", " : ""}
-              </span>
-            ))}
-          </div>
-        </div>
+        <TagsList tags={tags} />
         <ReactMarkdown
           components={{
             code: function ({ className, inline, children, ...props }) {
@@ -70,7 +60,6 @@ export default function Page({ params }: { params: { title: string } }) {
               </>
             ),
             h2: ({ node, ...props }) => (<h2 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h2>),
-            h3: ({ node, ...props }) => (<h3 id={props.children[0] as string}><a className="font-semibold no-underline" href={`${title}#${props.children[0]}`}>{props.children}</a></h3>),
             pre: ({ node, ...props }) => (<>{props.children}</>),
             a: ({ node, ...props }) => (
               props.href?.startsWith('/') ?
