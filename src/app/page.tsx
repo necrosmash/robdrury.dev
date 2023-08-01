@@ -36,7 +36,7 @@ export default function Home() {
             Featured projects
           </div>
           <FeaturedProjectEntry title="Mote" blurb="March Game Jam 2023 entry" imagePath="/mote banner.png" imageAlt="Mote banner" hrefPath="https://necrosmash.itch.io/mote" />
-          <FeaturedProjectEntry title="Thesis prototype" blurb="Generating story with ChatGPT via player input and enemy traits" imagePath="/thesis prototype banner.png" imageAlt="Thesis prototype banner" hrefPath="https://github.com/necrosmash/thesis_prototype" tags={['thesis']}/>
+          <FeaturedProjectEntry title="Thesis prototype" blurb="Generating game story with ChatGPT" imagePath="/thesis prototype banner.png" imageAlt="Thesis prototype banner" hrefPath="https://github.com/necrosmash/thesis_prototype" tags={['thesis']}/>
           <Link className="pt-14 text-xl float-right" href="/projects">
             All projects
             <HiArrowRight className="ml-2 inline" size={16}/>
