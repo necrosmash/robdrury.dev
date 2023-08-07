@@ -4,6 +4,7 @@ import { Code } from "bright"
 import Image from 'next/image'
 import Link from "next/link"
 import { titleBar } from "@/utils/extension"
+import { writeRssFeed } from '@/utils/rss'
 import { getSortedPostsMetadata } from "@/utils/posts"
 import TagsList from '@/components/TagsList'
 
@@ -74,6 +75,7 @@ export default function Page({ params }: { params: { title: string } }) {
 
 export async function generateStaticParams() {
   const posts = getSortedPostsMetadata()
+  writeRssFeed(posts)
   return posts.map((post) => { post.title })
 }
 
