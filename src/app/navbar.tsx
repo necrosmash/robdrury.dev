@@ -13,7 +13,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname()
   return (
-    <div className="flex flex-col md:flex-row md:justify-between items-center md:mb-24 mb-16">
+    <div className="flex flex-col md:flex-row md:justify-between items-center md:mb-24 mb-16 mt-6">
       <Link href={"/"}><h1 className="text-4xl font-emotionengine">robdrury.dev</h1></Link>
       <div className="mt-2 md:mt-0">
         {navLinks.map((link, index) => {
