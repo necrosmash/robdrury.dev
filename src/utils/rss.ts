@@ -3,7 +3,7 @@ import fs from 'fs'
 const generateFeedItem = (post: PostMetadata) => `
   <item>
     <title>${post.title}</title>
-    <link>https://www.robdrury.dev/blog/posts/${post.title}</link>
+    <link>https://www.robdrury.dev/blog/post/${post.title}</link>
     <description>${post.title}</description>
     <pubDate>${new Date(post.uploaded).toUTCString()}</pubDate>
   </item>
