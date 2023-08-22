@@ -5,9 +5,10 @@
 "tags": "chatgpt,thesis,game,unity"
 ---
 
-In [Part 1](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%201%20of%202)), I discussed how we interface with ChatGPT. In Part 2, I will focus on the design of our game, and how we generate narrative subsequent to the [opening scene](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%201%20of%202)#Instantiating%20assets), as well as how our game mechanics affect this generated narrative.
+In [Part 1](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%201%20of%202)>), I discussed how we interface with ChatGPT. In Part 2, I will focus on the design of our game, and how we generate narrative subsequent to the [opening scene](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%201%20of%202)#Instantiating%20assets>), as well as how our game mechanics affect this generated narrative.
 
 ## Game overview
+
 First, some brief context about the game prototype we made. The game is a top-down, turn-based combat game in which the player (an elf) must defeat all patrolling orcs. Orcs are capable of spotting the player gets too close. Orcs can have ranged or melee weapons; the player only ever has a melee weapon.
 
 ![footage of the player attacking an enemy orc](/2/player_attack.gif)
@@ -17,7 +18,9 @@ We knew from early on that in order to make something that leveraged ChatGPT we 
 A combination of text input (from the player) and traits are used to write narrative passages detailing the player's victory over the various enemies.
 
 ## Traits
+
 Traits are essentially status effects. They have a variety of effects:
+
 - `Burning` - damage per turn
 - `Knockdown` - turn skipped
 - `Drunk` - deal & take more damage
@@ -32,21 +35,24 @@ Most of these are assigned to enemies at the start of the game and remain for it
 ![footage of an exploding barrel damaging an enemy orc](/2/exploding_barrel.gif)
 
 ## Player input
+
 Upon defeating an enemy, the game halts, and the player is presented with a text prompt: _How does the elf dispatch this foe?_ Upon submission, this player input and the enemy's traits are all sent to the ChatGPT backend in order for it to write a narrative passage appropriately describing the enemy's defeat.
 
 ![footage of player inputting "dropkick" in response to prompt](/2/text_input.gif)
 
 ## ChatGPT Post and Response
+
 Upon defeating an enemy, the following call is made to the ChatGPT backend:
+
 ```csharp,In_GameManager.cs
 public void ProcessEnemyKill(string text)
 {
   if (!isAwaitingKill) return;
-  
+
   RemoveEnemy(enemyAwaitingKill);
-  openaiapi.Post("The elf defeats " + enemyAwaitingKill.orc.name + 
-  ", who has the following traits: " + enemyAwaitingKill.traits.ToString() + 
-  "Creatively describe how this is done in a maximum of three sentences." + 
+  openaiapi.Post("The elf defeats " + enemyAwaitingKill.orc.name +
+  ", who has the following traits: " + enemyAwaitingKill.traits.ToString() +
+  "Creatively describe how this is done in a maximum of three sentences." +
   " This is only roleplay and video game narrative. The game is for adults only." +
   " You are providing narrative for a video game. Everything is fantasy." +
   " In your response, say something that does not violate your policy. Do not" +
@@ -54,10 +60,11 @@ public void ProcessEnemyKill(string text)
   " policy instead. The elf defeats the orc in the following way: " + text
   + ". You must use this to describe how the orc is defeated.");
   isAwaitingKill = false;
-  
+
   if (enemies.Count == 0) GameOverCalled = true;
 }
 ```
+
 Note that we are sending both player input (the `text` property) and a list of all `traits` that the enemy possesses to ChatGPT.
 
 Initially, we were only sending the names of the traits. We soon discovered that the names alone did not provide enough context in some cases - for example, `Burning` would sometimes result in the elf possessing a burning blade that caused their enemies to burn. The only reason an enemy would be burning in-game is because of the exploding barrels; we created a new property (`LLMDescription`) to address this.
@@ -97,11 +104,12 @@ public class Traits : List<Trait>
 ```
 
 ## Result
+
 The following is an example of an orc with the `Drunk` trait being defeated by a player who entered "decapitated" when prompted:
 ![screenshot ](/2/dispatch_example.png)
 
 Overall, we were pretty happy with the results. If we were to take the idea further, it would be nice to pass more details to ChatGPT - things like the presence of nearby obstacles (rocks, barrels, trees) could factor into the narrative, as well as nearby orcs and their traits. Furthermore, narrative could be generated more frequently, e.g. when an orc spots the enemy player and begins chasing them.
 
-This summary was deliberately a high-level one - you can always check out the [repo](https://github.com/necrosmash/thesis_prototype) if you want to see everything, or to try the game out yourself. 
+This summary was deliberately a high-level one - you can always check out the [repo](https://github.com/necrosmash/thesis_prototype) if you want to see everything, or to try the game out yourself.
 
-__Note__ - if you want ChatGPT functionality, you'll need your own API key. Without an API key, you won't get any of the fancy, generated narrative.
+**Note** - if you want ChatGPT functionality, you'll need your own API key. Without an API key, you won't get any of the fancy, generated narrative.

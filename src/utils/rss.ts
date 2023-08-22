@@ -7,7 +7,7 @@ const generateFeedItem = (post: PostMetadata) => `
     <description>${post.title}</description>
     <pubDate>${new Date(post.uploaded).toUTCString()}</pubDate>
   </item>
-`;
+`
 
 const generateFeed = (posts: PostMetadata[]) => `
   <rss version="2.0">
@@ -19,9 +19,9 @@ const generateFeed = (posts: PostMetadata[]) => `
       ${posts.map(generateFeedItem).join('')}
     </channel>
   </rss>
-`;
+`
 
 export function writeRssFeed(posts: PostMetadata[]) {
   const rss = generateFeed(posts)
-  fs.writeFileSync('./public/rss.xml', rss);
+  fs.writeFileSync('./public/rss.xml', rss)
 }

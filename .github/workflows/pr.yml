@@ -1,0 +1,10 @@
+name: pull request
+
+on:
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  check_formatting:
+    uses: ./.github/workflows/check_formatting.yml

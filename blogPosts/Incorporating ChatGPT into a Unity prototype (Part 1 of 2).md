@@ -11,12 +11,14 @@ Is it a good idea to add ChatGPT to a Unity game? You may have your own thoughts
 In this post I would like to go how we incorporated ChatGPT into Unity. This is a relatively high-level description of our approach. If you want more detail, you can always check out the [repo](https://github.com/necrosmash/thesis_prototype) yourself.
 
 In our prototype, we have two main ways of making use of ChatGPT:
-* setting property values for instantiated assets
-* generating narrative
+
+- setting property values for instantiated assets
+- generating narrative
 
 (If you wish to read the thesis in its entirety, you can get it [here](https://drive.google.com/file/d/1q2msreCh4MQC_ZlNceXdsYCNj28wwmyD/view?usp=sharing))
 
 ## REST client
+
 Let's first talk about how one can even communicate with the ChatGPT backend in the first place.
 
 Despite there being some projects that aim to allow developers to communicate with OpenAI's APIs (either as a C# library or a Unity package) we had better luck writing our own simple REST client. Luckily, Unity has its `UnityWebRequest` to make things easier.
@@ -45,7 +47,7 @@ public void Post(string prompt)
     case Model.chatgpt:
       ChatGPTPost chatGPTPost = new ChatGPTPost();
       chatGPTPost.model = "gpt-3.5-turbo";
-      chatGPTPost.messages = 
+      chatGPTPost.messages =
         new Message[previousMessages.Count + 1];
 
       for (int i = 0; i < previousMessages.Count; i++)
@@ -64,7 +66,7 @@ public void Post(string prompt)
       StartCoroutine(Post(GenerateRequest(
         chatGptUrl, newChatGPTPostData
       )));
-            
+
       break;
     default:
     case Model.test:
@@ -78,14 +80,15 @@ public void Post(string prompt)
 
 This works well for our purposes, despite some awkwardness regarding the manual copying of previous messages (it ended up that way to facilitate both the beginning of the game, where we have no previous messages, and the calls subsequent to this).
 
-As you can see, we are copying messages from earlier in the conversation (if there are any) to the messages property of a `ChatGPTPost` class, which is merely a `Serializable` class capable of holding a `model` string and `messages` array. We serialize this using Unity's own `JSONUtility`. 
+As you can see, we are copying messages from earlier in the conversation (if there are any) to the messages property of a `ChatGPTPost` class, which is merely a `Serializable` class capable of holding a `model` string and `messages` array. We serialize this using Unity's own `JSONUtility`.
 
 The response is similarly deserialized:
+
 ```csharp,In_OpenAiApi.cs
 private IEnumerator Post(UnityWebRequest request)
 {
   isPostInProgress = true;
-  
+
   yield return request.SendWebRequest();
   if (request.result != UnityWebRequest.Result.Success)
   {
@@ -104,7 +107,7 @@ private IEnumerator Post(UnityWebRequest request)
         choice.message.role, choice.message.content
       ));
     }
-      
+
     if (isFirstPost)
     {
       response.ParseBattleInfo();
@@ -114,17 +117,19 @@ private IEnumerator Post(UnityWebRequest request)
 
     Debug.Log("API call complete");
   }
-  
+
   isPostInProgress = false;
 }
 ```
 
-`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)).
+`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)>).
 
 ## Instantiating assets
+
 As you saw earlier, JSON deserialisation is at the heart of this. Upon launching the game, we make a request to ChatGPT's backend to get the beginning of our narrative, as well as some property values for instantiating our enemies.
 
 The following is our `ChatGPTResponse` class, in its entirety:
+
 ```csharp,ChatGPTResponse.cs
 using UnityEngine;
 
@@ -168,7 +173,7 @@ The actual conversational response from ChatGPT comes in an array property calle
 string prompt = Regex.Replace("I want you to return me a JSON object. All" +
 " of your output should be a part of the JSON object. Do not output" +
 " any text except for the JSON object. Here is the example of the JSON" +
-" object: " + JsonUtility.ToJson(new BattleInfo()) + 
+" object: " + JsonUtility.ToJson(new BattleInfo()) +
 " \"weapon\" must be one of the following values: \"sword\", \"hammer\"," +
 " \"bow\". It cannot be anything else. \"size\" must be one of the" +
 " following values: \"small\", \"medium\", \"large\". It cannot be" +
@@ -178,7 +183,7 @@ string prompt = Regex.Replace("I want you to return me a JSON object. All" +
 " string. The opening scene must be a story about an elf about to engage" +
 " in a battle with a group of orcs. It is the beginning of the story" +
 " only. Be creative when you come up with descriptions of the orcs." +
-" Populate the \"orcs\" array based on the opening scene. ", 
+" Populate the \"orcs\" array based on the opening scene. ",
 "\"", "\\\"");
 ```
 
@@ -187,6 +192,7 @@ This prompt grew over time. The sentence _All of your output should be a part of
 We're also asking for particular sizes and weapons. The actual deserializing is done in `ChatGPTResponse` via Unity's own `JsonUtility.FromJson` method, as shown above.
 
 We're using our `BattleInfo` class to both describe the structure of the object we want from ChatGPT (in the prompt) and deserialize the result of our call:
+
 ```csharp,BattleInfo.cs
 [System.Serializable]
 public class BattleInfo
@@ -236,6 +242,7 @@ public class BattleInfo
 ```
 
 Then, when the call is finally complete, we can instantiate our orcs in our `GameManager`:
+
 ```csharp,NONAME
 BattleInfo.Orc[] orcs = openaiapi.response.battleInfo.orcs;
 ```
@@ -246,4 +253,4 @@ We similarly display the result of the `logString` property of our `ChatGPTRepso
 
 And that's it! Remember that if this seems light on details you can always check out the [repo](https://github.com/necrosmash/thesis_prototype).
 
-In [Part 2](/blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)) I'll go over how we handle narrative subsequent to the opening scene. We do this by merging enemy characteristics with generated narrative to create a story influenced by those characteristics.
+In [Part 2](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)>) I'll go over how we handle narrative subsequent to the opening scene. We do this by merging enemy characteristics with generated narrative to create a story influenced by those characteristics.
