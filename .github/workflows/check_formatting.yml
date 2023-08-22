@@ -1,9 +1,7 @@
-name: CI
+name: check formatting
 
 on:
-  push:
-    branches: ["prettier"]
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
