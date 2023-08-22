@@ -7,7 +7,7 @@ import FeaturedProjectEntry from '@/components/FeaturedProjectEntry'
 import { getSortedPostsMetadata } from '@/utils/posts'
 
 export default function Home() {
-    return (
+  return (
     <main>
       <div className="justify-between sm:flex">
         <div className="mb-6 mr-0 sm:mb-0 sm:mr-4">
