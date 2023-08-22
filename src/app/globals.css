@@ -9,16 +9,16 @@
 }*/
 
 /*@media (prefers-color-scheme: dark) {*/
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    /*--background-start-rgb: 0, 0, 0;
+:root {
+  --foreground-rgb: 255, 255, 255;
+  /*--background-start-rgb: 0, 0, 0;
     --background-end-rgb: 255, 255, 255;*/
-  }
+}
 /*}*/
 
 @font-face {
-  font-family: "emotionengine";
-  src: url("/fonts/EmotionEngine.otf")
+  font-family: 'emotionengine';
+  src: url('/fonts/EmotionEngine.otf');
 }
 
 body {
@@ -29,7 +29,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));*/
-    /*background-size: cover;
+  /*background-size: cover;
     background-repeat: no-repeat;*/
-    /*min-height: 100vh;*/
+  /*min-height: 100vh;*/
 }
