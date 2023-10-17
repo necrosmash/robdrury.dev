@@ -1,9 +1,9 @@
 ---
-"id": 1
-"title": "Incorporating ChatGPT into a Unity prototype (Part 1 of 2)"
-"uploaded": "2023-06-29"
-"updated": "2023-07-31"
-"tags": "chatgpt,thesis,game,unity"
+'id': 1
+'title': 'Incorporating ChatGPT into a Unity prototype (Part 1 of 2)'
+'uploaded': '2023-06-29'
+'updated': '2023-07-31'
+'tags': 'chatgpt,thesis,game,unity'
 ---
 
 Is it a good idea to add ChatGPT to a Unity game? You may have your own thoughts already, but this was the question that my thesis partner and I sought to answer for our Master's thesis.

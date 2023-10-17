@@ -18,4 +18,4 @@ type ProjectEntry = {
   variant: Variant
 }
 
-type Variant = 'all' | 'featured';
+type Variant = 'all' | 'featured'

@@ -2,13 +2,17 @@ name: deploy
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 jobs:
   check_formatting:
-    uses: ./.github/workflows/check_formatting.yml
-  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/check_formatting.yml
+
+  deploy:
+    needs: check_formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -16,7 +20,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2
         with:
-          node-version: "lts/*"
+          node-version: 'lts/*'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
