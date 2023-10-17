@@ -1,4 +1,4 @@
-import AllProjectsEntry from '@/components/AllProjectEntry'
+import ProjectsEntry from '@/components/ProjectsEntry'
 
 export default function BlogList() {
   return (
@@ -7,20 +7,30 @@ export default function BlogList() {
         All projects
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
-        <AllProjectsEntry
+        <ProjectsEntry
+          title="The Keeper"
+          blurb="Spooky Game Jam 23 entry"
+          imagePath="/the keeper banner.png"
+          imageAlt="The Keeper banner"
+          hrefPath="https://nightanimal333.itch.io/the-keeper"
+          variant="all"
+        />
+        <ProjectsEntry
           title="Mote"
           blurb="March Game Jam 2023 entry"
           imagePath="/mote banner.png"
           imageAlt="Mote banner"
           hrefPath="https://necrosmash.itch.io/mote"
+          variant="all"
         />
-        <AllProjectsEntry
+        <ProjectsEntry
           title="Thesis prototype"
           blurb="Generating game story with ChatGPT"
           tags={['thesis']}
           imagePath="/thesis prototype banner.png"
           imageAlt="Thesis prototype banner"
           hrefPath="https://github.com/necrosmash/thesis_prototype"
+          variant="all"
         />
       </div>
     </div>

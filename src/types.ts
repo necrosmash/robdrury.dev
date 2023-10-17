@@ -15,4 +15,7 @@ type ProjectEntry = {
   width?: number
   height?: number
   tags?: string[]
+  variant: Variant
 }
+
+type Variant = 'all' | 'featured';
