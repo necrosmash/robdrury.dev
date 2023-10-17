@@ -10,7 +10,7 @@ export default function ProjectsEntry({
   tags,
   variant,
   width = variant === 'all' ? 630 : 125,
-  height = variant === 'all' ? 500 : 125,
+  height = variant === 'all' ? 500 : 100,
 }: ProjectEntry) {
   return (
     <div className={variant === 'all' ? 'w-72' : 'mt-7 flex items-center'}>
