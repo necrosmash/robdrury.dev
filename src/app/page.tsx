@@ -49,7 +49,7 @@ export default function Home() {
           </div>
           <ProjectsEntry
             title="The Keeper"
-            blurb="Spooky Game Jam 23 entry"
+            blurb="Spooky Game Jam 2023 entry"
             imagePath="/the keeper banner.png"
             imageAlt="The Keeper banner"
             hrefPath="https://nightanimal333.itch.io/the-keeper"

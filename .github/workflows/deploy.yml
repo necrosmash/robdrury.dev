@@ -9,7 +9,21 @@ jobs:
   check_formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/check_formatting.yml
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Prettier
+        run: yarn prettier -c .
 
   deploy:
     needs: check_formatting
