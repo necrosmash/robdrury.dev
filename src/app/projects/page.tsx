@@ -8,6 +8,14 @@ export default function BlogList() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
         <ProjectsEntry
+          title="Trouble at the Pole"
+          blurb="Xmas Game Jam 23 entry"
+          imagePath="/tatp cover.png"
+          imageAlt="Trouble at the Pole banner"
+          hrefPath="https://nightanimal333.itch.io/trouble-at-the-pole"
+          variant="all"
+        />
+        <ProjectsEntry
           title="The Keeper"
           blurb="Spooky Game Jam 23 entry"
           imagePath="/the keeper banner.png"
