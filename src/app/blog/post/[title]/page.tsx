@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import matter from 'gray-matter'
 import { Code } from 'bright'
 import Image from 'next/image'
@@ -27,6 +28,7 @@ export default function Page({ params }: { params: { title: string } }) {
         </div>
         <TagsList tags={tags} />
         <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
           components={{
             code: function ({ className, inline, children, ...props }) {
               if (inline) {
@@ -61,6 +63,7 @@ export default function Page({ params }: { params: { title: string } }) {
                   <Image
                     alt={alt || ''}
                     src={src || ''}
+                    quality={100}
                     title={title}
                     width={900}
                     height={900}
