@@ -2,6 +2,7 @@
 'id': 3
 'title': 'My picoCAD to Godot workflow'
 'uploaded': '2024-01-12'
+'updated': '2024-01-12'
 'tags': 'blender,game,godot,picocad'
 ---
 
@@ -36,10 +37,11 @@ Import your OBJ and PNG files into your Godot project (I just drag-and-drop them
 To apply your texture:
 
 - select the model's node in the scene tree
-- in the Inspector, under `MeshInstance3D`, apply a `New StandardMaterial3D` to the `Surface Material Override` property
+- in the Inspector, under `MeshInstance3D`, apply a `New StandardMaterial3D` to the `Surface Material Override` property (1)
 - expand this new material property, and find its `Albedo` property
-- `Load` a new `Texture`
+- `Load` a new `Texture` (2)
 - select your PNG texture
+- expand the `Sampling` property, and change `Filter` to `Nearest` for those eye-gougingly sharp pixels (3)
 
 ![Cannon model with no texture, imported into Godot](/3/godot_apply_texture.png)
 
