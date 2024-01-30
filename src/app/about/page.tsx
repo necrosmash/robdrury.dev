@@ -18,8 +18,7 @@ export default function About() {
           <li>I moved to Gothenburg in 2019</li>
           <li>I have 6 years of professional experience as a developer</li>
           <li>
-            I have 2½ years of professional experience as a frontend developer,
-            specifically
+            Most of my professional experience has been in frontend development
           </li>
           <li>My main frontend experience is with React</li>
           <li>
