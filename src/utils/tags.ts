@@ -1,1 +1,9 @@
-export const tags = ['chatgpt', 'thesis', 'game', 'unity']
+export const tags = [
+  'blender',
+  'chatgpt',
+  'game',
+  'godot',
+  'picocad',
+  'thesis',
+  'unity',
+]
