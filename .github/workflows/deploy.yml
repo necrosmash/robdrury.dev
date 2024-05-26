@@ -51,11 +51,10 @@ jobs:
       - name: Deploy
         run: |
           rsync -avz --delete \
-            --exclude='/node_modules' \
             --exclude='/src' \
             --exclude='/.git' \
             --exclude='/.github' \
             $GITHUB_WORKSPACE/ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }}
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "cd /home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }} && yarn workspaces focus --production && pm2 restart \"rd\""
+            "cd /home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }} && pm2 restart \"rd\""
