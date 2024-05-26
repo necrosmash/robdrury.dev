@@ -38,3 +38,6 @@ next-env.d.ts
 
 # rss feed
 /public/rss.xml
+
+# optimisation file, shouldn't be tracked
+.yarn/install-state.gz
