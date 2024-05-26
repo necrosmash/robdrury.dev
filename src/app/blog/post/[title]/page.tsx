@@ -39,7 +39,6 @@ export default function Page({ params }: { params: { title: string } }) {
                   : []
                 return (
                   <div>
-                    {/* @ts-expect-error Server Component */}
                     <Code
                       title={
                         identifierString[1] && identifierString[1] !== 'NONAME'

@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 todo.md
+.yarn/
 
 # dependencies
 /node_modules
@@ -38,6 +39,3 @@ next-env.d.ts
 
 # rss feed
 /public/rss.xml
-
-# optimisation file, shouldn't be tracked
-.yarn/install-state.gz
