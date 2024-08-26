@@ -24,6 +24,13 @@ export default function RootLayout({
         crossOrigin="anonymous"
         strategy="lazyOnload"
       />
+      <Script
+        async
+        src="https://analytics.robdrury.dev/script.js"
+        data-website-id="713532f7-424b-4ae7-b834-77d28bb20352"
+        crossOrigin="anonymous"
+        strategy="lazyOnload"
+      />
       <body
         className={
           inter.className +
