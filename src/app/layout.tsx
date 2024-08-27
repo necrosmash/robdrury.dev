@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script
+      {/*<Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5448889247623170"
         crossOrigin="anonymous"
@@ -30,7 +30,7 @@ export default function RootLayout({
         data-website-id="713532f7-424b-4ae7-b834-77d28bb20352"
         crossOrigin="anonymous"
         strategy="lazyOnload"
-      />
+      />*/}
       <body
         className={
           inter.className +

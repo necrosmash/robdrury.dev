@@ -8,6 +8,14 @@ export default function BlogList() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
         <ProjectsEntry
+          title="Language Links"
+          blurb="Match words in English, Spanish, French, and German"
+          imagePath="/language links banner.png"
+          imageAlt="Language Links banner"
+          hrefPath="https://languagelinks.robdrury.dev"
+          variant="all"
+        />
+        <ProjectsEntry
           title="Trouble at the Pole"
           blurb="Xmas Game Jam 23 entry"
           imagePath="/tatp cover.png"

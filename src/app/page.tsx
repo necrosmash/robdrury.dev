@@ -48,6 +48,14 @@ export default function Home() {
             Featured projects
           </div>
           <ProjectsEntry
+            title="Language Links"
+            blurb="Match words in English, Spanish, French, and German"
+            imagePath="/language links banner.png"
+            imageAlt="Language Links banner"
+            hrefPath="https://languagelinks.robdrury.dev"
+            variant="featured"
+          />
+          <ProjectsEntry
             title="Trouble at the Pole"
             blurb="Xmas Game Jam 23 entry"
             imagePath="/tatp cover.png"
@@ -61,14 +69,6 @@ export default function Home() {
             imagePath="/the keeper banner.png"
             imageAlt="The Keeper banner"
             hrefPath="https://nightanimal333.itch.io/the-keeper"
-            variant="featured"
-          />
-          <ProjectsEntry
-            title="Mote"
-            blurb="March Game Jam 2023 entry"
-            imagePath="/mote banner.png"
-            imageAlt="Mote banner"
-            hrefPath="https://necrosmash.itch.io/mote"
             variant="featured"
           />
           <Link className="float-right pt-14 text-xl" href="/projects">
