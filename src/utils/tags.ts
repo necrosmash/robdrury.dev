@@ -6,4 +6,6 @@ export const tags = [
   'picocad',
   'thesis',
   'unity',
+  'next.js',
+  'github_pages',
 ]
