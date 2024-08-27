@@ -22,11 +22,6 @@ export default function About() {
           </li>
           <li>My main frontend experience is with React</li>
           <li>
-            I have studied (and should soon graduate from) a{' '}
-            <em>Game Design & Technology</em> Master&apos;s at Gothenburg
-            University
-          </li>
-          <li>
             I have a very deaf, very white{' '}
             <a
               className="text-blue-500 hover:text-blue-700"

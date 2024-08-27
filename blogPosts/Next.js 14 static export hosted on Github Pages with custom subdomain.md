@@ -14,6 +14,7 @@ Bear in mind that if you want to do this on a private repo you need a premium Gi
 I'm using yarn 4, so my process might be slightly different from yours WRT Github Actions. You could replace the `Install dependencies` step if you're not using yarn.
 
 ```yml,.github/workflows/publish.yml
+
 name: publish-to-github-pages
 on:
   push:
@@ -62,6 +63,7 @@ jobs:
 Here's that `Install dependencies` step if you need that too:
 
 ```yml,.github/workflows/setup-node/action.yml
+
 name: setup-node
 description: "Install dependencies and build with yarn"
 runs:
@@ -89,6 +91,7 @@ If you wanted to take what we've done so far and host it on Github Pages as-is, 
 - the following next.js config:
 
 ```ts,next.config.mjs
+
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   assetPrefix: process.env.ASSET_PREFIX || "",
@@ -97,6 +100,7 @@ const nextConfig = {
 ```
 
 ```,.env.production
+
 NEXT_PUBLIC_BASE_PATH=/[projectname]
 ASSET_PREFIX=/[projectname]/
 ```
@@ -104,6 +108,7 @@ ASSET_PREFIX=/[projectname]/
 For example, in order for my repo at `rob.github.io/amazingproject` to work, I would need:
 
 ```,.env.production
+
 NEXT_PUBLIC_BASE_PATH=/amazingproject
 ASSET_PREFIX=/amazingproject/
 ```
@@ -130,8 +135,8 @@ Add your subdomain under `Custom domain`. Input the whole URL - `[subdomain].[do
 
 Lastly, if you've been accessing your Github Pages site through `[username].github.io/[projectname]` in the past (like I mentioned before), you'll need to change your `next.config.mjs` back to something like this:
 
-```tsx
-/** @type {import('next').NextConfig} */
+```ts,next.config.mjs
+
 const nextConfig = {
   basePath: '',
   assetPrefix: '',
