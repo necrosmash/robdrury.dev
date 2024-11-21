@@ -48,6 +48,14 @@ export default function Home() {
             Featured projects
           </div>
           <ProjectsEntry
+            title="Bardbarian"
+            blurb="Spooky Game Jam 24 entry"
+            imagePath="/bardbarian banner.png"
+            imageAlt="Bardbarian banner"
+            hrefPath="https://nightanimal333.itch.io/bardbarian"
+            variant="featured"
+          />
+          <ProjectsEntry
             title="Language Links"
             blurb="Match words in English, Spanish, French, and German"
             imagePath="/language links banner.png"
@@ -61,14 +69,6 @@ export default function Home() {
             imagePath="/tatp cover.png"
             imageAlt="Trouble at the Pole banner"
             hrefPath="https://nightanimal333.itch.io/trouble-at-the-pole"
-            variant="featured"
-          />
-          <ProjectsEntry
-            title="The Keeper"
-            blurb="Spooky Game Jam 2023 entry"
-            imagePath="/the keeper banner.png"
-            imageAlt="The Keeper banner"
-            hrefPath="https://nightanimal333.itch.io/the-keeper"
             variant="featured"
           />
           <Link className="float-right pt-14 text-xl" href="/projects">

@@ -8,6 +8,14 @@ export default function BlogList() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
         <ProjectsEntry
+          title="Bardbarian"
+          blurb="Spooky Game Jam 24 entry"
+          imagePath="/bardbarian banner.png"
+          imageAlt="Bardbarian banner"
+          hrefPath="https://nightanimal333.itch.io/bardbarian"
+          variant="all"
+        />
+        <ProjectsEntry
           title="Language Links"
           blurb="Match words in English, Spanish, French, and German"
           imagePath="/language links banner.png"
