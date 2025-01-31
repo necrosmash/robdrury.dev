@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { SiGmail, SiLinkedin } from 'react-icons/si'
+import { SiGmail, SiLinkedin, SiMastodon } from 'react-icons/si'
 import { HiDocument } from 'react-icons/hi'
 
 export default function SocialLinks() {
@@ -15,6 +15,14 @@ export default function SocialLinks() {
         <div>Email</div>
       </a>
       <Link
+        href="https://mastodon.gamedev.place/@necrosmash"
+        target="_blank"
+        className="flex w-20 flex-col items-center"
+      >
+        <SiMastodon size={'2em'} className="mb-1" />
+        <div>Mastodon</div>
+      </Link>
+      <Link
         href="https://www.linkedin.com/in/robert-drury-2b491b48/"
         target="_blank"
         className="flex w-20 flex-col items-center"
@@ -23,7 +31,7 @@ export default function SocialLinks() {
         <div>LinkedIn</div>
       </Link>
       <a
-        href="https://drive.google.com/file/d/17gG3UwOcYJOfDavASB_d19o4SbpuG62m/view?usp=sharing"
+        href="https://drive.google.com/file/d/1dyrPQ6-MOGTh2x30y1SKkEbhXAnj42G6/view?usp=sharing"
         target="_blank"
         className="flex w-20 flex-col items-center"
       >
