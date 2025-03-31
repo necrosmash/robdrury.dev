@@ -43,7 +43,7 @@ export default function Home() {
       </div>
       <hr className="my-8 border-2 border-gray-700 md:my-16" />
       <div className="md:flex md:divide-x-4 md:divide-gray-700">
-        <div className="mx-auto pb-20 md:w-1/2 md:pb-0 md:pb-0 md:pr-8">
+        <div className="mx-auto pb-20 md:w-1/2 md:pb-0 md:pr-8">
           <div className="b-6 pb-5 text-center text-2xl font-semibold md:mt-0 md:text-3xl">
             Featured projects
           </div>

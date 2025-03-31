@@ -24,11 +24,7 @@ export default function Navbar() {
             (link.name !== 'Home' && pathname.startsWith(link.href))
           return (
             <Link
-              className={`
-                ${navLinks.length - 1 !== index && `mr-4`}
-                ${isActive && 'rounded-full bg-pink-600'}
-                px-3 py-1.5 text-lg font-semibold
-              `}
+              className={` ${navLinks.length - 1 !== index && `mr-4`} ${isActive && 'rounded-full bg-pink-600'} px-3 py-1.5 text-lg font-semibold`}
               href={link.href}
               key={link.name}
             >

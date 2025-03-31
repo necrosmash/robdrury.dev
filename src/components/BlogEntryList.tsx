@@ -12,12 +12,7 @@ export default function BlogEntryList({
       {blogEntries.map(({ id, uploaded, title, tags }, index) => {
         const tagsArray = tags.split(',')
         return (
-          <li
-            key={id}
-            className={`
-            ${index != 0 && `mt-7`}
-          `}
-          >
+          <li key={id} className={` ${index != 0 && `mt-7`} `}>
             <Link className="text-xl" href={`/blog/post/${title}`}>
               {title}
             </Link>
