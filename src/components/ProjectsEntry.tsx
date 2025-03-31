@@ -14,7 +14,7 @@ export default function ProjectsEntry({
 }: ProjectEntry) {
   return (
     <div className={variant === 'all' ? 'w-72' : 'mt-7 flex items-center'}>
-      <a href={hrefPath} className="flex-shrink-0" target="_blank">
+      <a href={hrefPath} className="shrink-0" target="_blank">
         <Image
           className="rounded-lg border-2 border-gray-700"
           src={imagePath}

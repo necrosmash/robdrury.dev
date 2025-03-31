@@ -9,7 +9,7 @@ export default async function Page({ params }: { params: { tag: string } }) {
   const { tag } = await params
 
   return (
-    <div className="mx-auto grid w-fit max-w-4xl grid-cols-[1fr,auto,1fr] grid-rows-1">
+    <div className="mx-auto grid w-fit max-w-4xl grid-cols-[1fr_auto_1fr] grid-rows-1">
       <Link href="/blog">
         <HiArrowLeft className="mr-2" size={32} />
       </Link>
