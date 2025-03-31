@@ -9,11 +9,10 @@ import { writeRssFeed } from '@/utils/rss'
 import { getSortedPostsMetadata } from '@/utils/posts'
 import TagsList from '@/components/TagsList'
 
-export default function Page({ params }: { params: { title: string } }) {
-  const { title } = params
+export default async function Page({ params }: { params: { title: string } }) {
+  const { title } = await params
   const post = getPost(decodeURI(title))
   const tags = post.data.tags.split(',')
-
   return (
     <div className="flex justify-center">
       <article className="prose prose-invert w-full md:prose-lg">
@@ -30,28 +29,26 @@ export default function Page({ params }: { params: { title: string } }) {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            code: function ({ className, inline, children, ...props }) {
-              if (inline) {
-                return <code {...props}>{children[0]}</code>
+            code: ({ className, children, ...props }) => {
+              const identifierString: string[] = className
+                ? className.split(',')
+                : []
+              if (identifierString.length == 0) {
+                return <code>{children}</code>
               } else {
-                const identifierString: string[] = className
-                  ? className.split(',')
-                  : []
                 return (
-                  <div>
-                    <Code
-                      title={
-                        identifierString[1] && identifierString[1] !== 'NONAME'
-                          ? identifierString[1].replaceAll('_', ' ')
-                          : ''
-                      }
-                      lang={identifierString[0]?.replace('language-', '')}
-                      extensions={[titleBar]}
-                      theme={'dark-plus'}
-                    >
-                      {children[0] && (children[0] as string).replace('\n', '')}
-                    </Code>
-                  </div>
+                  <Code
+                    title={
+                      identifierString[1] && identifierString[1] !== 'NONAME'
+                        ? identifierString[1].replaceAll('_', ' ')
+                        : ''
+                    }
+                    lang={identifierString[0]?.replace('language-', '')}
+                    extensions={[titleBar]}
+                    theme={'dark-plus'}
+                  >
+                    {children && (children as string).replace('\n', '')}
+                  </Code>
                 )
               }
             },
@@ -72,10 +69,10 @@ export default function Page({ params }: { params: { title: string } }) {
               </>
             ),
             h2: ({ node, ...props }) => (
-              <h2 id={props.children[0] as string}>
+              <h2 id={props.children as string}>
                 <a
                   className="font-semibold no-underline"
-                  href={`${title}#${props.children[0]}`}
+                  href={`${title}#${props.children}`}
                 >
                   {props.children}
                 </a>
@@ -103,7 +100,7 @@ export async function generateStaticParams() {
   const posts = getSortedPostsMetadata()
   writeRssFeed(posts)
   return posts.map((post) => {
-    post.title
+    return { title: post.title }
   })
 }
 

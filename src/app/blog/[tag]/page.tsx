@@ -5,8 +5,8 @@ import { getSortedPostsMetadata } from '@/utils/posts'
 import { tags } from '@/utils/tags'
 import BlogEntryList from '@/components/BlogEntryList'
 
-export default function Page({ params }: { params: { tag: string } }) {
-  const { tag } = params
+export default async function Page({ params }: { params: { tag: string } }) {
+  const { tag } = await params
 
   return (
     <div className="mx-auto grid w-fit max-w-4xl grid-cols-[1fr,auto,1fr] grid-rows-1">
@@ -25,4 +25,7 @@ export default function Page({ params }: { params: { tag: string } }) {
   )
 }
 
-export const generateStaticParams = () => tags.map((tag) => tag)
+export const generateStaticParams = () =>
+  tags.map((tag) => {
+    return { tag: tag }
+  })
