@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { title: string } }) {
   const tags = post.data.tags.split(',')
   return (
     <div className="flex justify-center">
-      <article className="prose prose-invert w-full md:prose-lg">
+      <article className="prose prose-invert md:prose-lg w-full">
         <h2>{post.data.title}</h2>
         <div className="mb-4 text-2xl">
           <div>{getDate(post.data.uploaded)}</div>

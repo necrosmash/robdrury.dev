@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main>
       <div className="justify-between sm:flex">
-        <div className="mb-6 mr-0 sm:mb-0 sm:mr-4">
+        <div className="mr-0 mb-6 sm:mr-4 sm:mb-0">
           <div className="text-3xl font-semibold md:text-5xl">
             Hi 👋
             <br />
@@ -26,7 +26,7 @@ export default function Home() {
             here
           </Link>
           .
-          <div className="-ml-5 mt-16 hidden sm:block">
+          <div className="mt-16 -ml-5 hidden sm:block">
             <SocialLinks />
           </div>
         </div>
@@ -38,12 +38,12 @@ export default function Home() {
           height={400}
         />
       </div>
-      <div className="-ml-5 mt-8 block sm:hidden">
+      <div className="mt-8 -ml-5 block sm:hidden">
         <SocialLinks />
       </div>
       <hr className="my-8 border-2 border-gray-700 md:my-16" />
       <div className="md:flex md:divide-x-4 md:divide-gray-700">
-        <div className="mx-auto pb-20 md:w-1/2 md:pb-0 md:pr-8">
+        <div className="mx-auto pb-20 md:w-1/2 md:pr-8 md:pb-0">
           <div className="b-6 pb-5 text-center text-2xl font-semibold md:mt-0 md:text-3xl">
             Featured projects
           </div>

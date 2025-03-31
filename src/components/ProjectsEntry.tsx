@@ -23,7 +23,7 @@ export default function ProjectsEntry({
           alt={imageAlt}
         />
       </a>
-      <div className={variant === 'all' ? 'ml-0.5 mt-1' : 'ml-4'}>
+      <div className={variant === 'all' ? 'mt-1 ml-0.5' : 'ml-4'}>
         <a
           className={variant === 'all' ? 'text-2xl' : 'text-xl'}
           href={hrefPath}

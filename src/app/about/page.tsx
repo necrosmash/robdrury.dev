@@ -4,7 +4,7 @@ export default function About() {
   return (
     <div className="flex">
       <div className="min-w-[50%]">
-        <div className="mb-4 mr-6 text-xl">
+        <div className="mr-6 mb-4 text-xl">
           <p>
             This site is something of a work-in-progress (the contents of this
             page included.)

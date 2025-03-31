@@ -13,7 +13,7 @@ const navLinks = [
 export default function Navbar() {
   const pathname = usePathname()
   return (
-    <div className="mb-16 mt-6 flex flex-col items-center md:mb-24 md:flex-row md:justify-between">
+    <div className="mt-6 mb-16 flex flex-col items-center md:mb-24 md:flex-row md:justify-between">
       <Link href={'/'}>
         <h1 className="font-emotionengine text-4xl">robdrury.dev</h1>
       </Link>
