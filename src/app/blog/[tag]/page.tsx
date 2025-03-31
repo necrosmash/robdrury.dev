@@ -5,7 +5,11 @@ import { getSortedPostsMetadata } from '@/utils/posts'
 import { tags } from '@/utils/tags'
 import BlogEntryList from '@/components/BlogEntryList'
 
-export default async function Page({ params }: { params: { tag: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ tag: string }>
+}) {
   const { tag } = await params
 
   return (
