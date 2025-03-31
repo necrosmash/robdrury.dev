@@ -9,7 +9,11 @@ import { writeRssFeed } from '@/utils/rss'
 import { getSortedPostsMetadata } from '@/utils/posts'
 import TagsList from '@/components/TagsList'
 
-export default async function Page({ params }: { params: { title: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ title: string }>
+}) {
   const { title } = await params
   const post = getPost(decodeURI(title))
   const tags = post.data.tags.split(',')
