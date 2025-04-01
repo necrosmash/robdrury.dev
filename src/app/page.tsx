@@ -48,11 +48,19 @@ export default function Home() {
             Featured projects
           </div>
           <ProjectsEntry
-            title="Bardbarian"
-            blurb="Spooky Game Jam 24 entry"
-            imagePath="/bardbarian banner.png"
-            imageAlt="Bardbarian banner"
-            hrefPath="https://nightanimal333.itch.io/bardbarian"
+            title="Deep Blue Demo"
+            blurb="Demo - submarine exploration"
+            imagePath="/dpd banner.png"
+            imageAlt="Deep Blue Demo banner"
+            hrefPath="https://necrosmash.itch.io/deep-blue-demo"
+            variant="featured"
+          />
+          <ProjectsEntry
+            title="Tweets of Fury"
+            blurb="March Game Jam 25 entry"
+            imagePath="/tof banner.png"
+            imageAlt="Tweets of Fury banner"
+            hrefPath="https://necrosmash.itch.io/tweets-of-fury"
             variant="featured"
           />
           <ProjectsEntry
@@ -61,14 +69,6 @@ export default function Home() {
             imagePath="/language links banner.png"
             imageAlt="Language Links banner"
             hrefPath="https://languagelinks.robdrury.dev"
-            variant="featured"
-          />
-          <ProjectsEntry
-            title="Trouble at the Pole"
-            blurb="Xmas Game Jam 23 entry"
-            imagePath="/tatp cover.png"
-            imageAlt="Trouble at the Pole banner"
-            hrefPath="https://nightanimal333.itch.io/trouble-at-the-pole"
             variant="featured"
           />
           <Link className="float-right pt-14 text-xl" href="/projects">

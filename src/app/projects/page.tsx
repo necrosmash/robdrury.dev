@@ -8,6 +8,30 @@ export default function BlogList() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
         <ProjectsEntry
+          title="Deep Blue Demo"
+          blurb="Demo - submarine exploration"
+          imagePath="/dpd banner.png"
+          imageAlt="Deep Blue Demo banner"
+          hrefPath="https://necrosmash.itch.io/deep-blue-demo"
+          variant="all"
+        />
+        <ProjectsEntry
+          title="Tweets of Fury"
+          blurb="March Game Jam 25 entry"
+          imagePath="/tof banner.png"
+          imageAlt="Tweets of Fury banner"
+          hrefPath="https://necrosmash.itch.io/tweets-of-fury"
+          variant="all"
+        />
+        <ProjectsEntry
+          title="Santa's Watchful Eye"
+          blurb="Xmas Game Jam 24 entry"
+          imagePath="/swe banner.png"
+          imageAlt="Santa's Watchful Eye banner"
+          hrefPath="https://nightanimal333.itch.io/santas-watchful-eye"
+          variant="all"
+        />
+        <ProjectsEntry
           title="Bardbarian"
           blurb="Spooky Game Jam 24 entry"
           imagePath="/bardbarian banner.png"
@@ -26,7 +50,7 @@ export default function BlogList() {
         <ProjectsEntry
           title="Trouble at the Pole"
           blurb="Xmas Game Jam 23 entry"
-          imagePath="/tatp cover.png"
+          imagePath="/tatp banner.png"
           imageAlt="Trouble at the Pole banner"
           hrefPath="https://nightanimal333.itch.io/trouble-at-the-pole"
           variant="all"

@@ -5,14 +5,7 @@ export default function About() {
     <div className="flex">
       <div className="min-w-[50%]">
         <div className="mr-6 mb-4 text-xl">
-          <p>
-            This site is something of a work-in-progress (the contents of this
-            page included.)
-          </p>
-          <p>
-            I&apos;m planning on writing this section more fully in the future.
-          </p>
-          <p>For now, here are some bullet points:</p>
+          <p>Here are some bullet points:</p>
         </div>
         <ul className="ml-4 list-disc">
           <li>I moved to Gothenburg in 2019</li>
