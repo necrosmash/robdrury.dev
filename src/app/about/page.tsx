@@ -30,7 +30,7 @@ export default function About() {
               className="text-blue-500 hover:text-blue-700"
               target="_blank"
               href={
-                'https://drive.google.com/file/d/17gG3UwOcYJOfDavASB_d19o4SbpuG62m/view?usp=sharing'
+                'https://drive.google.com/file/d/1dyrPQ6-MOGTh2x30y1SKkEbhXAnj42G6/view?usp=sharing'
               }
             >
               looking for work
