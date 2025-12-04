@@ -56,22 +56,25 @@ export default async function Page({
                 )
               }
             },
-            img: ({ src, alt, title }) => (
-              <>
-                {/* not spreading props in image, it caused issues with width and height properties*/}
-                <a target="_blank" href={src}>
-                  <Image
-                    alt={alt || ''}
-                    src={src || ''}
-                    quality={100}
-                    title={title}
-                    width={900}
-                    height={900}
-                    className="h-auto w-full"
-                  ></Image>
-                </a>
-              </>
-            ),
+            img: ({ src, alt, title }) => {
+              const stringSrc = typeof src === 'string' ? src : undefined
+              return (
+                <>
+                  {/* not spreading props in image, it caused issues with width and height properties*/}
+                  <a target="_blank" href={stringSrc}>
+                    <Image
+                      alt={alt || ''}
+                      src={stringSrc || ''}
+                      quality={100}
+                      title={title}
+                      width={900}
+                      height={900}
+                      className="h-auto w-full"
+                    ></Image>
+                  </a>
+                </>
+              )
+            },
             h2: ({ node, ...props }) => (
               <h2 id={props.children as string}>
                 <a
