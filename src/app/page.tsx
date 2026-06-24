@@ -36,7 +36,7 @@ export default function Home() {
           className="w-fit w-min self-start rounded-lg border-2 border-gray-700 sm:max-w-[33%]"
           width={400}
           height={400}
-          loading='eager'
+          loading="eager"
         />
       </div>
       <div className="mt-8 -ml-5 block sm:hidden">

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { SiGithub, SiGmail, SiMastodon } from 'react-icons/si'
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin } from 'react-icons/fa'
 import { HiDocument } from 'react-icons/hi'
 
 export default function SocialLinks() {
