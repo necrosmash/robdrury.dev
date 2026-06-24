@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import { SiGithub, SiGmail, SiLinkedin, SiMastodon } from 'react-icons/si'
+import { SiGithub, SiGmail, SiMastodon } from 'react-icons/si'
+import { FaLinkedin } from "react-icons/fa";
 import { HiDocument } from 'react-icons/hi'
 
 export default function SocialLinks() {
@@ -35,7 +36,7 @@ export default function SocialLinks() {
         target="_blank"
         className="flex w-20 flex-col items-center"
       >
-        <SiLinkedin size={'2em'} className="mb-1" />
+        <FaLinkedin size={'2em'} className="mb-1" />
         <div>LinkedIn</div>
       </Link>
       <a
