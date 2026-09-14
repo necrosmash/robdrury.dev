@@ -10,7 +10,7 @@
 
 ## Export the model
 
-To start with, I have made a ~busted~ beautiful cannon model.
+To start with, I have made a ~~busted~~ beautiful cannon model.
 
 ![exported GIF of picoCAD cannon model](/3/cannon.gif)
 
