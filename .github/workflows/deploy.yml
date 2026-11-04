@@ -5,19 +5,32 @@ on:
     branches: ['main']
   workflow_dispatch:
 
+# Least privilege for the GITHUB_TOKEN: the jobs only need to read the repo.
+permissions:
+  contents: read
+
+# Never run two deploys to the server at the same time.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   check_formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # Actions are pinned to full commit SHAs so a moved tag can't change
+      # what runs here. The comment records the version for updates.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 'lts/*'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Lint
         run: yarn eslint .
@@ -29,32 +42,37 @@ jobs:
     needs: check_formatting
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 'lts/*'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Build the app
         run: yarn build
 
       - name: Setup SSH Key
-        uses: shimataro/ssh-key-action@v2
+        uses: shimataro/ssh-key-action@87a8f067114a8ce263df83e9ed5c849953548bc3 # v2.8.1
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
 
       - name: Deploy
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
         run: |
           rsync -avz --delete \
             --exclude='/src' \
             --exclude='/.git' \
             --exclude='/.github' \
-            $GITHUB_WORKSPACE/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }}
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "cd /home/${{ secrets.SSH_USER }}/${{ secrets.SSH_HOST }} && pm2 restart \"rd\""
+            "$GITHUB_WORKSPACE/" \
+            "$SSH_USER@$SSH_HOST:/home/$SSH_USER/$SSH_HOST"
+          ssh "$SSH_USER@$SSH_HOST" \
+            "cd /home/$SSH_USER/$SSH_HOST && pm2 restart \"rd\""
