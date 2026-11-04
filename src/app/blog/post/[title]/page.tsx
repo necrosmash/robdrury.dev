@@ -111,6 +111,8 @@ export async function generateStaticParams() {
   })
 }
 
+export const dynamicParams = false
+
 const getPost = (title: string) => {
   const post = matter.read(`blogPosts/${title}.md`)
   return { data: post.data, content: post.content }

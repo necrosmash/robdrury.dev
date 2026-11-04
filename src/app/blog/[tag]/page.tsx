@@ -33,3 +33,5 @@ export const generateStaticParams = () =>
   tags.map((tag) => {
     return { tag: tag }
   })
+
+export const dynamicParams = false
