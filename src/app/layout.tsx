@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'robdrury.dev',
   description: "Rob Drury's personal website.",
+  other: {
+    'google-adsense-account': 'ca-pub-5448889247623170',
+  },
 }
 
 export default function RootLayout({
@@ -18,12 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script
+      {/* <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5448889247623170"
         crossOrigin="anonymous"
         strategy="lazyOnload"
-      />
+      /> */}
       <Script
         async
         src="https://analytics.robdrury.dev/script.js"
