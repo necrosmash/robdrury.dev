@@ -8,6 +8,14 @@ export default function BlogList() {
       </div>
       <div className="flex flex-wrap justify-center gap-x-4 gap-y-8">
         <ProjectsEntry
+          title="Chase the Stars"
+          blurb="First-person platformer"
+          imagePath="/cts banner.png"
+          imageAlt="Chase the Stars banner"
+          hrefPath="https://necrosmash.itch.io/chase-the-stars"
+          variant="all"
+        />
+        <ProjectsEntry
           title="Deep Blue Demo"
           blurb="Demo - submarine exploration"
           imagePath="/dpd banner.png"

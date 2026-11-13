@@ -49,19 +49,19 @@ export default function Home() {
             Featured projects
           </div>
           <ProjectsEntry
+            title="Chase the Stars"
+            blurb="First-person platformer"
+            imagePath="/cts banner.png"
+            imageAlt="Chase the Stars banner"
+            hrefPath="https://necrosmash.itch.io/chase-the-stars"
+            variant="featured"
+          />
+          <ProjectsEntry
             title="Deep Blue Demo"
             blurb="Demo - submarine exploration"
             imagePath="/dpd banner.png"
             imageAlt="Deep Blue Demo banner"
             hrefPath="https://necrosmash.itch.io/deep-blue-demo"
-            variant="featured"
-          />
-          <ProjectsEntry
-            title="Tweets of Fury"
-            blurb="March Game Jam 25 entry"
-            imagePath="/tof banner.png"
-            imageAlt="Tweets of Fury banner"
-            hrefPath="https://necrosmash.itch.io/tweets-of-fury"
             variant="featured"
           />
           <ProjectsEntry
