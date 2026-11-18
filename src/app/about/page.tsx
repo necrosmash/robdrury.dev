@@ -9,7 +9,14 @@ export default function About() {
         </div>
         <ul className="ml-4 list-disc">
           <li>I moved to Gothenburg in 2019</li>
-          <li>I have 10 years of professional experience as a developer</li>
+          <li>
+            I have 6 years of professional experience as a software developer
+            (2013 - 2021), mostly frontend
+          </li>
+          <li>
+            I&apos;ve been making games since 2023 — including an MSc in Game
+            Design & Technology
+          </li>
           <li>
             I have a very deaf, very white{' '}
             <a
