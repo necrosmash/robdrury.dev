@@ -1,4 +1,4 @@
-import { getSortedPostsMetadata } from '@/utils/posts'
+import { getSortedBlogPostsMetadata } from '@/utils/posts'
 import BlogEntryList from '@/components/BlogEntryList'
 
 export default function BlogList() {
@@ -8,7 +8,7 @@ export default function BlogList() {
         All posts
       </div>
       <div className="xsm:min-w-[500px]">
-        <BlogEntryList blogEntries={getSortedPostsMetadata()} />
+        <BlogEntryList blogEntries={getSortedBlogPostsMetadata()} />
       </div>
     </div>
   )

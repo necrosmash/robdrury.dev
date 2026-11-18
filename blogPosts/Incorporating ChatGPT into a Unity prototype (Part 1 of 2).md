@@ -1,5 +1,5 @@
 ---
-'id': 1
+'slug': 'chatgpt-unity-prototype-part-1'
 'title': 'Incorporating ChatGPT into a Unity prototype (Part 1 of 2)'
 'uploaded': '2023-06-29'
 'updated': '2023-07-31'
@@ -122,7 +122,7 @@ private IEnumerator Post(UnityWebRequest request)
 }
 ```
 
-`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)>).
+`response.ParseBattleInfo()` and `response.ParseLogString()` are how we make use of the returned data from ChatGPT for our game. Let's talk about `response.ParseBattleInfo()` first. I'll go over `response.ParseLogString()` in [Part 2](/blog/post/chatgpt-unity-prototype-part-2).
 
 ## Instantiating assets
 
@@ -253,4 +253,4 @@ We similarly display the result of the `logString` property of our `ChatGPTRepso
 
 And that's it! Remember that if this seems light on details you can always check out the [repo](https://github.com/necrosmash/thesis_prototype).
 
-In [Part 2](</blog/post/Incorporating%20ChatGPT%20into%20a%20Unity%20prototype%20(Part%202%20of%202)>) I'll go over how we handle narrative subsequent to the opening scene. We do this by merging enemy characteristics with generated narrative to create a story influenced by those characteristics.
+In [Part 2](/blog/post/chatgpt-unity-prototype-part-2) I'll go over how we handle narrative subsequent to the opening scene. We do this by merging enemy characteristics with generated narrative to create a story influenced by those characteristics.

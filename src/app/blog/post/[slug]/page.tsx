@@ -1,21 +1,19 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import matter from 'gray-matter'
 import { Code } from 'bright'
 import Image from 'next/image'
 import Link from 'next/link'
 import { titleBar } from '@/utils/extension'
-import { writeRssFeed } from '@/utils/rss'
-import { getSortedPostsMetadata } from '@/utils/posts'
+import { getBlogPostBySlug, getSortedBlogPostsMetadata } from '@/utils/posts'
 import TagsList from '@/components/TagsList'
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ title: string }>
+  params: Promise<{ slug: string }>
 }) {
-  const { title } = await params
-  const post = getPost(decodeURI(title))
+  const { slug } = await params
+  const post = getBlogPostBySlug(slug)
   const tags = post.data.tags.split(',')
   return (
     <div className="flex justify-center">
@@ -79,7 +77,7 @@ export default async function Page({
               <h2 id={props.children as string}>
                 <a
                   className="font-semibold no-underline"
-                  href={`${title}#${props.children}`}
+                  href={`${slug}#${props.children}`}
                 >
                   {props.children}
                 </a>
@@ -103,19 +101,13 @@ export default async function Page({
   )
 }
 
-export async function generateStaticParams() {
-  const posts = getSortedPostsMetadata()
-  writeRssFeed(posts)
-  return posts.map((post) => {
-    return { title: post.title }
-  })
-}
-
 export const dynamicParams = false
 
-const getPost = (title: string) => {
-  const post = matter.read(`blogPosts/${title}.md`)
-  return { data: post.data, content: post.content }
+export async function generateStaticParams() {
+  const posts = getSortedBlogPostsMetadata()
+  return posts.map((post) => {
+    return { slug: post.slug }
+  })
 }
 
 const getDate = (date: string) => new Date(date).toLocaleDateString('fr-CA')

@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { HiTag } from 'react-icons/hi'
 

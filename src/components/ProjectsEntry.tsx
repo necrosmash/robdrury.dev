@@ -2,37 +2,32 @@ import Image from 'next/image'
 import TagsList from '@/components/TagsList'
 
 export default function ProjectsEntry({
-  imagePath,
-  imageAlt,
-  hrefPath,
-  title,
-  blurb,
-  tags,
+  project,
   variant,
   width = variant === 'all' ? 630 : 125,
   height = variant === 'all' ? 500 : 100,
-}: ProjectEntry) {
+}: ProjectsEntryProps) {
   return (
     <div className={variant === 'all' ? 'w-72' : 'mt-7 flex items-center'}>
-      <a href={hrefPath} className="shrink-0" target="_blank">
+      <a href={project.hrefPath} className="shrink-0" target="_blank">
         <Image
           className="rounded-lg border-2 border-gray-700"
-          src={imagePath}
+          src={project.imagePath}
           width={width}
           height={height}
-          alt={imageAlt}
+          alt={project.imageAlt}
         />
       </a>
       <div className={variant === 'all' ? 'mt-1 ml-0.5' : 'ml-4'}>
         <a
           className={variant === 'all' ? 'text-2xl' : 'text-xl'}
-          href={hrefPath}
+          href={project.hrefPath}
           target="_blank"
         >
-          {title}
+          {project.title}
         </a>
-        <div className="mt-1">{blurb}</div>
-        {tags && <TagsList tags={tags} />}
+        <div className="mt-1">{project.blurb}</div>
+        {project.tags && <TagsList tags={project.tags} />}
       </div>
     </div>
   )

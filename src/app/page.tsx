@@ -4,7 +4,8 @@ import { HiArrowRight } from 'react-icons/hi'
 import BlogEntryList from '@/components/BlogEntryList'
 import SocialLinks from '@/components/SocialLinks'
 import ProjectsEntry from '@/components/ProjectsEntry'
-import { getSortedPostsMetadata } from '@/utils/posts'
+import { getProjectBySlug } from '@/utils/projects'
+import { getSortedBlogPostsMetadata } from '@/utils/posts'
 
 export default function Home() {
   return (
@@ -49,27 +50,15 @@ export default function Home() {
             Featured projects
           </div>
           <ProjectsEntry
-            title="Chase the Stars"
-            blurb="First-person platformer"
-            imagePath="/cts banner.png"
-            imageAlt="Chase the Stars banner"
-            hrefPath="https://necrosmash.itch.io/chase-the-stars"
+            project={getProjectBySlug('chase-the-stars')}
             variant="featured"
           />
           <ProjectsEntry
-            title="Deep Blue Demo"
-            blurb="Demo - submarine exploration"
-            imagePath="/dpd banner.png"
-            imageAlt="Deep Blue Demo banner"
-            hrefPath="https://necrosmash.itch.io/deep-blue-demo"
+            project={getProjectBySlug('deep-blue-demo')}
             variant="featured"
           />
           <ProjectsEntry
-            title="Language Links"
-            blurb="Match words in English, Spanish, French, and German"
-            imagePath="/language links banner.png"
-            imageAlt="Language Links banner"
-            hrefPath="https://languagelinks.robdrury.dev"
+            project={getProjectBySlug('language-links')}
             variant="featured"
           />
           <Link className="float-right pt-14 text-xl" href="/projects">
@@ -82,7 +71,9 @@ export default function Home() {
           <div className="pb-5 text-center text-2xl font-semibold md:text-3xl">
             Most recent posts
           </div>
-          <BlogEntryList blogEntries={getSortedPostsMetadata(undefined, 3)} />
+          <BlogEntryList
+            blogEntries={getSortedBlogPostsMetadata(undefined, 3)}
+          />
           <Link className="float-right pt-14 text-xl" href="/blog">
             All posts
             <HiArrowRight className="ml-2 inline" size={16} />

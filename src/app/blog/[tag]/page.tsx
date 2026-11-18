@@ -1,7 +1,6 @@
-import React from 'react'
 import Link from 'next/link'
 import { HiArrowLeft } from 'react-icons/hi'
-import { getSortedPostsMetadata } from '@/utils/posts'
+import { getSortedBlogPostsMetadata } from '@/utils/posts'
 import { tags } from '@/utils/tags'
 import BlogEntryList from '@/components/BlogEntryList'
 
@@ -22,16 +21,16 @@ export default async function Page({
       </div>
       <div className="col-span-3 row-start-2 justify-self-center">
         <div className="xsm:min-w-[500px]">
-          <BlogEntryList blogEntries={getSortedPostsMetadata(tag)} />
+          <BlogEntryList blogEntries={getSortedBlogPostsMetadata(tag)} />
         </div>
       </div>
     </div>
   )
 }
 
+export const dynamicParams = false
+
 export const generateStaticParams = () =>
   tags.map((tag) => {
     return { tag: tag }
   })
-
-export const dynamicParams = false

@@ -1,5 +1,5 @@
 ---
-'id': 4
+'slug': 'nextjs-static-export-github-pages'
 'title': 'Next.js 14 static export hosted on Github Pages with custom subdomain'
 'uploaded': '2024-08-27'
 'tags': 'next.js,github_pages'

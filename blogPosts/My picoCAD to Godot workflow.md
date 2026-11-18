@@ -1,5 +1,5 @@
 ---
-'id': 3
+'slug': 'my-picocad-to-godot-workflow'
 'title': 'My picoCAD to Godot workflow'
 'uploaded': '2024-01-12'
 'updated': '2024-01-12'
