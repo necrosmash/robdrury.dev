@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
 import BlogEntryList from '@/components/BlogEntryList'
 import SocialLinks from '@/components/SocialLinks'
-import ProjectsEntry from '@/components/ProjectsEntry'
-import { getProjectBySlug } from '@/utils/projects'
+import GamesEntry from '@/components/GamesEntry'
+import { getProjectBySlug } from '@/utils/games'
 import { getSortedBlogPostsMetadata } from '@/utils/posts'
 
 export default function Home() {
@@ -46,19 +46,19 @@ export default function Home() {
       <hr className="my-8 border-2 border-gray-700 md:my-16" />
       <div className="md:flex md:divide-x-4 md:divide-gray-700">
         <div className="mx-auto pb-20 md:w-1/2 md:pr-8 md:pb-0">
-          <div className="b-6 pb-5 text-center text-2xl font-semibold md:mt-0 md:text-3xl">
+          <div className="pb-5 text-center text-2xl font-semibold md:mt-0 md:text-3xl">
             Featured projects
           </div>
-          <ProjectsEntry
-            project={getProjectBySlug('chase-the-stars')}
+          <GamesEntry
+            game={getProjectBySlug('chase-the-stars')}
             variant="featured"
           />
-          <ProjectsEntry
-            project={getProjectBySlug('deep-blue-demo')}
+          <GamesEntry
+            game={getProjectBySlug('deep-blue-demo')}
             variant="featured"
           />
-          <ProjectsEntry
-            project={getProjectBySlug('language-links')}
+          <GamesEntry
+            game={getProjectBySlug('language-links')}
             variant="featured"
           />
           <Link className="float-right pt-14 text-xl" href="/projects">

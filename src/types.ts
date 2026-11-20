@@ -6,7 +6,7 @@ type BlogPostMetadata = {
   tags: string
 }
 
-type Project = {
+type Game = {
   slug: string
   imagePath: string
   imageAlt: string
@@ -17,11 +17,19 @@ type Project = {
   tags?: string[]
 }
 
-type ProjectsEntryProps = {
-  project: Project
-  variant: Variant
+type GamesEntryProps = {
+  game: Game
+  variant: 'all' | 'featured'
   width?: number
   height?: number
+}
+
+type SoftwareProject = {
+  title: string
+  hrefPath: string
+  description: string
+  icon: import('react-icons').IconType
+  uploaded: string
 }
 
 type RSSFeedItem = {
@@ -33,5 +41,3 @@ type RSSFeedItem = {
   imagePath?: string
   imageAlt?: string
 }
-
-type Variant = 'all' | 'featured'

@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import TagsList from '@/components/TagsList'
 
-export default function ProjectsEntry({
-  project,
+export default function GamesEntry({
+  game: project,
   variant,
   width = variant === 'all' ? 630 : 125,
   height = variant === 'all' ? 500 : 100,
-}: ProjectsEntryProps) {
+}: GamesEntryProps) {
   return (
     <div className={variant === 'all' ? 'w-72' : 'mt-7 flex items-center'}>
       <a href={project.hrefPath} className="shrink-0" target="_blank">

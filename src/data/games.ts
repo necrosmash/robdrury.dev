@@ -1,4 +1,4 @@
-export const projects: Project[] = [
+export const games: Game[] = [
   {
     slug: 'chase-the-stars',
     title: 'Chase the Stars',
