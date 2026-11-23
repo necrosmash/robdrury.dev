@@ -87,6 +87,8 @@ export default async function Page({
             a: ({ node, ...props }) =>
               props.href?.startsWith('/') ? (
                 <Link href={props.href}>{props.children}</Link>
+              ) : props.href?.startsWith('#') ? (
+                <a href={props.href}>{props.children}</a>
               ) : (
                 <a target="_blank" href={`${props.href}`}>
                   {props.children}

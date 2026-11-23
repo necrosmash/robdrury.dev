@@ -1,29 +1,17 @@
 import { getGames } from '@/utils/games'
 import { getSoftwareProjects } from '@/utils/software-projects'
+import SoftwareProjectsEntry from '@/components/SoftwareProjectsEntry'
 import GamesEntry from '@/components/GamesEntry'
-import Link from 'next/link'
 
 export default function ProjectList() {
   return (
     <div>
       <ProjectListSectionTitle>Software projects</ProjectListSectionTitle>
-      <ProjectListContainer>
+      <div className="mx-auto mb-20 w-fit">
         {getSoftwareProjects().map((sp) => (
-          <div key={sp.title}>
-            <div className="flex text-center">
-              <Link href={sp.hrefPath}>
-                <sp.icon size={38} className="mt-2 mr-5" />
-              </Link>
-              <div className="">
-                <Link href={sp.hrefPath}>
-                  <div className="mb-2 text-left text-2xl">{sp.title}</div>
-                </Link>
-                <div className="text-left">{sp.description}</div>
-              </div>
-            </div>
-          </div>
+          <SoftwareProjectsEntry project={sp} key={sp.title} />
         ))}
-      </ProjectListContainer>
+      </div>
       <ProjectListSectionTitle>Games</ProjectListSectionTitle>
       <ProjectListContainer>
         {getGames().map((p) => (
